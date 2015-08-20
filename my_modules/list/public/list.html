@@ -1,0 +1,30 @@
+
+<div >
+    <table class="table table-hover table-bordered table-responsive" style="width:600px;margin-top:60px;margin-left:20px">
+        <caption><h4>列表显示</h4></caption>
+      <tbody>
+      <tr>
+       <!-- <th>firstname</th>
+        <th>lastname</th>
+        <th>usernmae</th>-->
+        <th>ssn</th>
+        <th>time</th>
+          <th>expense</th>
+      </tr>
+      <tr ng-repeat='us in info'>
+          <td style="display:none;">{{$index}}</td>
+       <!--   <td >{{us.firstname}} </td>
+          <td > {{us.lastname}}</td>
+          <td > {{us.username}}</td>-->
+          <td > {{us.ssn}}</td>
+          <td > {{us.time|date:'yyyy-MM-dd'}}</td>
+          <td > {{us.expense|number:2}}</td>
+
+      </tr>
+      </tbody>
+  </table>
+</div>
+<ng-include src="'my_modules/list/public/includes/pagination.html'"></ng-include>
+
+
+

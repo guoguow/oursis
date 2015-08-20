@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>实验登录-home</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.css" />
+      <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="public/js/lib/angular-bootstrap-datepicker.css" />
+
+
+
+  </head>
+
+  <body ng-controller="MainCtrl">
+
+    <ng-include src="'public/views/includes/navbar.html'"></ng-include>
+    <ng-include src="'public/views/includes/abltree.html'"></ng-include>
+
+
+    <div class="container">
+      <div ng-view></div>
+    </div>
+
+    <script src="public/js/lib/jquery.min.js"></script>
+    <script src="public/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/lib/bootstrap-paginator.min.js"></script>
+    <script src="public/js/lib/angular/angular.min.js"></script>
+    <script src="public/js/lib/angular/angular-route.js"></script>
+    <script src="public/js/lib/angular/angular-resource.js"></script>
+    <script src="public/js/lib/angular/angular-cookies.js"></script>
+    <script src="public/js/lib/jquery.ztree.all-3.5.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+
+    <script src="public/js/controllers.js"></script>
+    <script src="public/js/services.js"></script>
+    <script src="public/js/route.js"></script>
+
+    <script src="my_modules/UserManage/public/js/controllers.js"></script>
+    <script src="my_modules/UserManage/public/js/services.js"></script>
+    <script src="my_modules/UserManage/public/js/route.js"></script>
+
+    <script src="my_modules/list/public/js/listCtrl.js"></script>
+    <script src="my_modules/list/public/js/services.js"></script>
+    <script src="my_modules/list/public/js/route.js"></script>
+
+    <!--
+ <script src="my_modules/UserManage/public/js/services.js"></script>
+
+
+       <script src="/js/lib/angular-bootstrap-datepicker.js" charset="utf-8"></script> -->
+  </body>
+</html>

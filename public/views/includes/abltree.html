@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>可隐藏导航</title>
+    <meta name="description" content=">可隐藏导航">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="fragment" content="!" />
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body >
+
+<div class="container" style="width:180px; padding: 50 50px;margin-right:0">
+    <div class="row" ng-controller="TypeCtrl">
+        <nav class="navbar navbar-default" role="navigation">
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><img border="0" src="public/images/left.png">社保信息 <b class="caret"></b></a>
+                        <ul class="dropdown-menu menu-top">
+                            <!--                      <li><a href="#">医疗  </a></li>
+                                                      <li><a href="#">养老</a></li>
+                                                      <li><a href="#">生育</a></li>
+                                                      <li><a href="#">工伤</a></li>
+                                                      <li><a href="#">失业</a></li>                -->
+                            <table  >
+                            <tr ng-repeat="si in st1">
+
+                                                          <td><a href="#">{{si.sign}} </a></td>
+                                                          <td><a href="#">{{si.kind}}</a></td></tr>
+
+                                <tr ng-repeat="si in st2">
+
+                                    <td><a href="#">{{si.sign}} </a></td>
+                                    <td><a href="#">{{si.kind}}</a></td> </tr>
+                                <tr ng-repeat="si in st3">
+
+                                    <td><a href="#">{{si.sign}} </a></td>
+                                    <td><a href="#">{{si.kind}}</a></td>
+                                                      </tr>
+</table>
+                                                  </ul>
+                                              </li>
+                                          </ul>
+                                      </div>
+
+                                  </nav>
+                              </div>
+                          </div>
+
+
+                          <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+                          <script src="/bower_components/angular/angular.min.js"></script>
+                          <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                          <script src="/bower_components/angular-route/angular-route.min.js"></script>
+                          <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+                    </script><script src="/js/controllers.js"></script>
+                    <script src="/js/services.js"></script>
+                   <script src="/js/route.js"></script>
+                          </body>
+                          </html>

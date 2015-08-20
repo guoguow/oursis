@@ -1,0 +1,13 @@
+
+<div class="page-list">
+    <ul class="pagination" ng-show="totalPage>1">
+        <li ng-class="{true:'active'}[currentPage==0]"><a href="javascript:void(0)"
+                                                          ng-click="load(0)">首页</a></li>
+        <li ng-class="{true:'disabled'}[currentPage==0]"><a href="javascript:void(0);" ng-click="prev()">上一页</a></li>
+        <li ng-repeat="page in pages"><a href="javascript:void(0);" ng-click="loadPage(page)">{{ page }}</a></li>
+        <li ng-class="{true:'disabled'}[currentPage==totalPage]"><a href="javascript:void(0);" ng-click="next()">下一页</a>
+        </li>
+        <li ng-class="{true:'active'}[currentPage==totalPage]"><a href="javascript:void(0)"
+                                                                  ng-click="load(totalPage)">末页</a></li>
+    </ul>
+</div>
