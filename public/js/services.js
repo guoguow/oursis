@@ -100,10 +100,12 @@ services.factory('user', function($http, $cookies, $q){
 
       get: function() {
           return angular.fromJson($cookies.user);
-      },
+      }
 
 
+  };
 
+});
 
 
 
@@ -149,41 +151,43 @@ services.factory('user', function($http, $cookies, $q){
 
 
 
-    },*/
-      getsistype:function(user,$scope) {
+    },
+ getsistype:function(user,$scope) {
 
-          console.log('before get sistype');
-         // $scope.data=[st1,st2,st3];
+ console.log('before get sistype');
+ // $scope.data=[st1,st2,st3];
 
-          $http.post('/getsistype1',{username:user.username}).success(function(data1) {
-              console.log('return get sistyoe data1');console.log(data1);
+ $http.post('/getsistype1',{username:user.username}).success(function(data1) {
+ console.log('return get sistyoe data1');console.log(data1);
 
-               $scope.st1=data1;
+ $scope.st1=data1;
 
-          }).error(function(data1) {
-              deferred.reject(data1.error);
-          });
-          $http.post('/getsistype2',{username:user.username}).success(function(data2) {
-              console.log('return get sistyoe data2');console.log(data2);
+ }).error(function(data1) {
+ deferred.reject(data1.error);
+ });
+ $http.post('/getsistype2',{username:user.username}).success(function(data2) {
+ console.log('return get sistyoe data2');console.log(data2);
 
-              $scope.st2=data2;
+ $scope.st2=data2;
 
-          }).error(function(data2) {
-              deferred.reject(data2.error);
-          });
-          $http.post('/getsistype3',{username:user.username}).success(function(data3) {
-              console.log('return get sistyoe data3');console.log(data3);
+ }).error(function(data2) {
+ deferred.reject(data2.error);
+ });
+ $http.post('/getsistype3',{username:user.username}).success(function(data3) {
+ console.log('return get sistyoe data3');console.log(data3);
 
-              $scope.st3=data3;
+ $scope.st3=data3;
 
-          }).error(function(data3) {
-              deferred.reject(data3.error);
-          });
+ }).error(function(data3) {
+ deferred.reject(data3.error);
+ });
 
-         // $scope.sistype={st1,st2,st3};
+ // $scope.sistype={st1,st2,st3};
 
 
-      }
+ }
+    */
+
 
 /*
       getalllist: function(user,$scope) {
@@ -206,9 +210,7 @@ services.factory('user', function($http, $cookies, $q){
 
       }
 */
-  };
 
-});
 
 
 

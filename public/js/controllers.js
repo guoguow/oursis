@@ -11,14 +11,6 @@ app.controller('MainCtrl', function ($scope, user,pag) {
     $scope.pages = [1,2];
     $scope.endPage =1;
 
-    $scope.datepickerOptions = {
-        format: 'yyyy-mm-dd',
-        language: 'fr',
-        startDate: "2012-10-01",
-        endDate: "2012-10-31",
-        autoclose: true,
-        weekStart: 0
-    };
 
     $scope.user = user.get();
     console.log("user =", user);
@@ -30,6 +22,14 @@ app.controller('MainCtrl', function ($scope, user,pag) {
  *
  *
  *
+ $scope.datepickerOptions = {
+        format: 'yyyy-mm-dd',
+        language: 'fr',
+        startDate: "2012-10-01",
+        endDate: "2012-10-31",
+        autoclose: true,
+        weekStart: 0
+    };
  *
  *
  * Login controller
@@ -114,25 +114,13 @@ app.controller('SignupCtrl', function ($scope, $window, user) {
       $scope.error = "用户名、邮箱或密码不能为空";
     }
   };
-}); */
+});
 app.controller('TypeCtrl', function ($scope, $window, user) {
 
     console.log('before get typelist');
-    // submit form
-    user.getsistype($scope.user,$scope);
-    /*   .then(function(data) {
-     $scope.error = false;
-     $scope.success = 'ok ,success to get sistype ';
-     $window.location = '/';
-     },function(error) {
-     $scope.error = error;
-     }) ;
-     if ($scope.sign && $scope.kind) {
 
-     }
-     else {
-     $scope.error = "false";
-     }*/
+    user.getsistype($scope.user,$scope);
+
 
 });
-
+ */

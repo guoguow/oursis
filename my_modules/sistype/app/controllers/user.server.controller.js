@@ -1,30 +1,8 @@
 var User = require('../../app/models/user.server.model'),
     passport = require('passport'),
-crypto=require('crypto');
+    crypto=require('crypto');
 
 
-var getErrorMessage = function(err) {
-    var message = '';
-    if (err.code) {
-        switch (err.code) {
-            case 11000:
-            case 11001:
-                message = 'Username already exists';
-                break;
-            default:
-                message = 'Something went wrong';
-        }
-    } else {
-        for (var errName in err.errors) {
-            if (err.errors[errName].message) message = err.errors[errName].message;
-        }
-    }
-    return message;
-};
-
-
-
-/*
  exports.getsistype1=function(req,res,next) {
  console.log('goto get sistype');
  console.log(req.body);
@@ -119,4 +97,3 @@ exports.getsistype3=function(req,res,next) {
     })
 };
 
-*/

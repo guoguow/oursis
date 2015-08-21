@@ -5,6 +5,7 @@ var users=require('../controllers/user.server.controller');
 var usermanage=require('../../my_modules/UserManage/app/controllers/user.server.controller.js');
    /* passport=require('passport');*/
 var list=require('../../my_modules/list/app/controllers/user.server.controller.js');
+var sistype=require('../../my_modules/sistype/app/controllers/user.server.controller.js');
 
 module.exports=function(app){
     app.route('/signup').post(usermanage.signup);
@@ -24,7 +25,7 @@ module.exports=function(app){
   //  app.route('/userList').post(users.getlist);
   //  app.route('/allList').post(users.getalllist);
 
-    app.route('/getsistype1').post(users.getsistype1);
-    app.route('/getsistype2').post(users.getsistype2);
-    app.route('/getsistype3').post(users.getsistype3);
+    app.route('/getsistype1').post(sistype.getsistype1);
+    app.route('/getsistype2').post(sistype.getsistype2);
+    app.route('/getsistype3').post(sistype.getsistype3);
 }
