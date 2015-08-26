@@ -1,7 +1,7 @@
 
 var app = angular.module('myApp.controllers',[]);
 
-/**
+/*
  * Main / Root controller
  */
 app.controller('MainCtrl', function ($scope, user,pag) {
@@ -11,11 +11,27 @@ app.controller('MainCtrl', function ($scope, user,pag) {
     $scope.pages = [1,2];
     $scope.endPage =1;
 
+    //sign for payhist ,sign="养老，医疗，生育……"
+    $scope.signforpay  =null;
+    $scope.dataforpay =null;
 
     $scope.user = user.get();
     console.log("user =", user);
 
 
+});
+
+app.controller('PensionCtrl', function ($scope, user) {
+
+        $scope.signforpay= 1;
+        console.log("acesse for pension");
+});
+
+app.controller('HealthCtrl', function ($scope, user) {
+
+    $scope.signforpay= 2;
+    console.log("acesse for health"+ $scope.signforpay);
+    console.log($scope.signforpay);
 });
 /**
  *

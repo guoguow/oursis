@@ -39,6 +39,16 @@ services.factory('type', function($http, $cookies, $q){
          // $scope.sistype={st1,st2,st3};
 
 
+      },
+      reset:function($scope) {
+
+          $scope.signforpay=null;
+          $scope.dataforpay=null;
+          console.log('see the new value of signforpay??change ??');
+          console.log($scope.signforpay,$scope.dataforpay);
+
+
+
       }
 
   };

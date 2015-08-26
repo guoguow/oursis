@@ -7,8 +7,13 @@ var app = angular.module('myApp.controllers');
 app.controller('TypeCtrl', function ($scope, $window, type) {
 
     console.log('before get typelist');
+
     // submit form
     type.getsistype($scope.user,$scope);
+    //type.reset($scope);
+
+
+
     /*   .then(function(data) {
      $scope.error = false;
      $scope.success = 'ok ,success to get sistype ';
