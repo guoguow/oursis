@@ -1,5 +1,5 @@
 
-var  client = require('../../../DBaccess/database.js'),
+var  client = require('../../../MDaccess/database.js'),
     crypto=require('crypto');
 function  User(user) {
     this.firstname = user.firstName;
@@ -12,7 +12,7 @@ function  User(user) {
     this.mobilephone=user.mobilephone;
 }
 
-mysql = client.getDbCon();
+mysql = client.getDbCon("sis");
 module.exports = User;
 
 //获取用户
