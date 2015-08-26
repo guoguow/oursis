@@ -20,10 +20,6 @@ var app = angular.module('myApp.controllers');
           $scope.getPages();
       };
 
-      $scope.prev =function(){pag.prev($scope);}
-      $scope.next=function(){pag.next($scope);}
-      $scope.loadPage=function(page){pag.loadPage(page,$scope);}
-      $scope.getPages=function(){pag.getPages($scope);}
 
 
 

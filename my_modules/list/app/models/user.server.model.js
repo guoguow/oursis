@@ -12,7 +12,7 @@ function  User(user) {
     this.mobilephone=user.mobilephone;
 }
 
-mysql = client.getDbCon();
+mysql = client.getDbCon("sis");
 module.exports = User;
 
 User.get =  function  get(a,tablename,condition,callback) {

@@ -8,8 +8,7 @@ client = null;
 mysql = require('mysql');
 
 exports.getDbCon = function(database) {
-    settings.db.database=database;
-
+  settings.db.database=database;
     if (client) {
         client = mysql.createConnection(settings.db);
         client.connect(function (err) {
