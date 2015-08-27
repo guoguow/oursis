@@ -1,12 +1,12 @@
 
 
 
-//var users=require('../controllers/user.server.controller');
+var list=require('../controllers/user.server.controller');
 
 
-//module.exports=function(app){
+module.exports=function(app){
 
-    //  app.route('/signin').get(users.signin);
-    // app.get('/signin',users.signin);
+    app.route('/userList').post(list.getlist);
+    app.route('/allList').post(list.getalllist);
 
-//}
+}
