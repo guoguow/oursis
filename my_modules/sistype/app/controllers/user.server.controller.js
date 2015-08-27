@@ -19,7 +19,7 @@ var User = require('../../app/models/user.server.model'),
  console.log('something wrong');
  return next(err);
  };
- var a="sign,kind";
+ var a="sign,kind,link,link1,link2";
  var condition={name:"sign",value:1};
  var tablename="sistype";
  User.gettype(a,tablename,condition, function (err, user) {

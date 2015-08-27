@@ -21,7 +21,7 @@ app.controller('MainCtrl', function ($scope, user,pag) {
 
 });
 
-app.controller('PensionCtrl', function ($scope, user) {
+app.controller('EndowmentCtrl', function ($scope, user) {
 
         $scope.signforpay= 1;
         console.log("acesse for pension");

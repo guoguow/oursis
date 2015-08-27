@@ -17,8 +17,6 @@ app.controller('PayCtrl', function ($scope, $window,pay) {
     if ($scope.signforpay==null) {
         $scope.dataforpay="unkonwn";
         console.log($scope.signforpay, $scope.dataforpay);
-
-
     }
   else  if ($scope.signforpay==1) {
         $scope.dataforpay="养老";

@@ -11,7 +11,7 @@ services.factory('pay', function($http, $cookies,$q){
           console.log('before get payhist pension data');
           console.log({username:user.username,signforpay:signforpay});
 
-          $http.post('/pension',{username:user.username
+          $http.post('/endowment',{username:user.username
               ,signforpay:signforpay
           }).success(function(data) {
               console.log('return get pension data');console.log(data);
