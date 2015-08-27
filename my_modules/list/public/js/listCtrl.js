@@ -17,7 +17,7 @@ var app = angular.module('myApp.controllers');
           console.log($scope.currentPage+"++++++++++++++"+$scope.totalPage);
 
           list.getlist($scope.user,$scope);
-          $scope.getPages();
+          pag.getPages($scope);
       };
 
 
