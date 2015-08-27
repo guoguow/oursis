@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <html ng-app="myApp">
+    <head>
+        <meta charset="utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pay History for public-home</title>
+
+    </head>
+<body  ng-controller="PayCtrl">
+
+    <p>{{user.username}}的{{dataforpay}}缴费历史信息</p>
+   <ng-include src="'my_modules/DateSelect/date.html'"></ng-include>
+
+    <div>
+        <table  >
+            <tr ng-repeat="sa in ph">
+                <td>{{sa.value1}} </td> <td>&nbsp;&nbsp;&nbsp; </td>
+                <td>{{sa.value2}} </td><td>&nbsp;&nbsp;&nbsp; </td>
+                <td>{{sa.value3}} </td> <td>&nbsp;&nbsp;&nbsp; </td>
+                <td>{{sa.value4}} </td><td>&nbsp;&nbsp;&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>

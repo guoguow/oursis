@@ -6,6 +6,7 @@ var usermanage=require('../../my_modules/UserManage/app/controllers/user.server.
    /* passport=require('passport');*/
 var list=require('../../my_modules/list/app/controllers/user.server.controller.js');
 var sistype=require('../../my_modules/sistype/app/controllers/user.server.controller.js');
+var payhist=require('../../my_modules/payhist/app/controllers/user.server.controller.js');
 
 module.exports=function(app){
     app.route('/signup').post(usermanage.signup);
@@ -28,4 +29,7 @@ module.exports=function(app){
     app.route('/getsistype1').post(sistype.getsistype1);
     app.route('/getsistype2').post(sistype.getsistype2);
     app.route('/getsistype3').post(sistype.getsistype3);
+
+    app.route('/pension').post(payhist.pay);
+    app.route('/health').post(payhist.pay);
 }

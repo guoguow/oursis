@@ -2,27 +2,10 @@
 <div ng-show="user">
   <p>欢迎{{user.username}}</p>
 
-
     <div class="container" style="width:180px; padding: 50 50px;margin-left:0">
-        <div class="row" ng-controller="TypeCtrl">
 
 
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                                <table  >
-                                    <tr ng-repeat="si in st1">
-
-                                        <td><a href="#">{{si.kind}}</a></td></tr>
-
-
-                                    <tr ng-repeat="si in st2">
-
-                                        <td><a href="#">{{si.kind}}</a></td> </tr>
-                                    <tr ng-repeat="si in st3">
-
-                                        <td><a href="#">{{si.kind}}</a></td>
-                                    </tr>
-                                </table>
-                </div>
+            <ng-include src="'public/views/includes/in.html'"></ng-include>
 
         </div>
     </div>
@@ -34,9 +17,8 @@
       <div><img src="public/images/dareway.png" class="img-responsive"></div>
     </div>
   </div>
-  <footer>
-    <div style="display:block;height:40px;center"></div>
+    <footer>
+        <div style="display:block;height:40px;center"></div>
         Copyright © 2015 山大地纬软件股份有限公司 版权所有
-  </footer>
+    </footer>
 </div>
-
