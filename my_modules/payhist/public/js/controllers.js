@@ -7,30 +7,34 @@ var app = angular.module('myApp.controllers');
  * for payhist modules
  */
 
+app.controller('EndowmentCtrl', function ($scope, $window,setpay) {
+
+    console.log("reset set payforsign  for endowment");
+    setpay.reset($scope.user,$scope);
+    setpay.setpay1($scope.user,$scope);
+
+
+});
+
+app.controller('HealthCtrl', function ($scope, $window,setpay) {
+
+    console.log("reset set payforsign  for health");
+    setpay.reset($scope.user,$scope);
+    setpay.setpay2($scope.user,$scope);
+});
+
+
+
 
 app.controller('PayCtrl', function ($scope, $window,pay) {
 
 
     console.log('before get decide which payhist type');
-    console.log($scope.signforpay);
 
-    if ($scope.signforpay==null) {
-        $scope.dataforpay="unkonwn";
-        console.log($scope.signforpay, $scope.dataforpay);
-    }
-  else  if ($scope.signforpay==1) {
-        $scope.dataforpay="养老";
-        console.log($scope.signforpay, $scope.dataforpay);
-        pay.pension($scope.user,$scope.signforpay,$scope)
-    }
+        pay.py($scope);
+      //  console.log($scope.ph);
 
-    else if($scope.signforpay==2) {
-        $scope.dataforpay="医疗";
 
-        pay.health($scope.user,$scope.signforpay,$scope);
-        console.log($scope.signforpay, $scope.dataforpay);
-
-    }
 });
 
 

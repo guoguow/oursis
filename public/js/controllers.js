@@ -12,26 +12,13 @@ app.controller('MainCtrl', function ($scope, user,pag) {
     $scope.endPage =1;
 
     //sign for payhist ,sign="养老，医疗，生育……"
-    $scope.signforpay  =null;
-    $scope.dataforpay =null;
+   // $scope.signforpay  =null;
+   // $scope.dataforpay =null;
 
     $scope.user = user.get();
     console.log("user =", user);
 
 
-});
-
-app.controller('EndowmentCtrl', function ($scope, user) {
-
-        $scope.signforpay= 1;
-        console.log("acesse for pension");
-});
-
-app.controller('HealthCtrl', function ($scope, user) {
-
-    $scope.signforpay= 2;
-    console.log("acesse for health"+ $scope.signforpay);
-    console.log($scope.signforpay);
 });
 /**
  *

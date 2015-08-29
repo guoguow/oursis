@@ -10,12 +10,17 @@
     </head>
 <body  ng-controller="PayCtrl">
 
-    <p>{{user.username}}的{{dataforpay}}缴费历史信息</p>
    <ng-include src="'my_modules/DateSelect/date.html'"></ng-include>
 
     <div>
         <table  >
+
             <tr ng-repeat="sa in ph">
+       <!--  why  sa.kind not show in the html?????????? not resloved -->
+                <p>{{user.username}}的{{sa.kind}}缴费历史信息</p>
+
+                <td>{{sa.sign}} </td> <td>&nbsp;&nbsp;&nbsp; </td>
+                <td>{{sa.kind}} </td> <td>&nbsp;&nbsp;&nbsp; </td>
                 <td>{{sa.value1}} </td> <td>&nbsp;&nbsp;&nbsp; </td>
                 <td>{{sa.value2}} </td><td>&nbsp;&nbsp;&nbsp; </td>
                 <td>{{sa.value3}} </td> <td>&nbsp;&nbsp;&nbsp; </td>

@@ -227,7 +227,6 @@ exports.saveprofile=function(req,res,next) {
     var ssn = req.body.ssn;
     var message=checkProfile(lname,ssn,function(err,message){
 
-
         console.log("++++++++++++++++"+message);
         if (!message) {
             console.log(lname);

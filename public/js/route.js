@@ -12,14 +12,7 @@ config(function ($routeProvider, $locationProvider) {
     when('/', {
       templateUrl: 'public/views/index.html'
     }).
-        when('/endowment', {
-            templateUrl: 'public/views/endowment.html',
-          controller: 'EndowmentCtrl'
-        }).
-      when('/health', {
-          templateUrl: 'public/views/health.html',
-         controller: 'HealthCtrl'
-      }).
+
     otherwise({
       redirectTo: '/'
     });
