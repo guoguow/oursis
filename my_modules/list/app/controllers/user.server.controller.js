@@ -1,6 +1,5 @@
-var User = require('../../app/models/user.server.model'),
-    passport = require('passport'),
-crypto=require('crypto');
+var Pag = require('../../../pag/pag.js')
+    ;
 
 
 exports.getlist=function(req,res,next) {
@@ -8,7 +7,7 @@ exports.getlist=function(req,res,next) {
 
     console.log(req.body);
     var lname = req.body.username;
-    User.getSsn(lname,function (err, data) {
+    Pag.getSsn(lname,function (err, data) {
 
         if (err) {
             console.log('something wrong');
@@ -21,7 +20,7 @@ exports.getlist=function(req,res,next) {
         var tablename="list";
         var start=req.body.page*req.body.pageSize;
         var end=req.body.pageSize;
-        User.getlist(a,tablename,condition ,start,end,function (err, list) {
+        Pag.getlist(a,tablename,condition ,start,end,function (err, list) {
 
             if (err) {
                 console.log('something wrong');
@@ -38,7 +37,7 @@ exports.getlist=function(req,res,next) {
 exports.getalllist=function(req,res,next) {
     console.log('goto get alllist');
     var lname = req.body.username;
-    User.getSsn(lname,function (err, data) {
+    Pag.getSsn(lname,function (err, data) {
 
         if (err) {
             console.log('something wrong');
@@ -50,7 +49,7 @@ exports.getalllist=function(req,res,next) {
         var a=" count(*) count";
         var condition={name:"ssn",value:ssn};
         var tablename="list";
-        User.get(a,tablename,condition,function (err, count) {
+        Pag.get(a,tablename,condition,function (err, count) {
 
             if (err) {
                 console.log('something wrong');
