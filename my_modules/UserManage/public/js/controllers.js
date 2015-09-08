@@ -34,7 +34,7 @@ app.controller('LogoutCtrl', function ($scope, $window, us) {
         us.logout().then(function() {
             $scope.user = null;
             $window.location = '/';
-            console.log(widouws.location);
+            console.log(window.location);
 
         }, function(error) {
             console.log(error);
@@ -63,29 +63,52 @@ app.controller('SignupCtrl', function ($scope, $window, us) {
     };
 });
 
-app.controller('ProfileCtrl', function ($scope, $window, us) {
+app.controller('ProfileCtrl', function ($scope, $window,user, us) {
 
+    $scope.user = user.get();
 
     console.log('before get profile');
-    us.getprofile($scope.user,$scope);
+    console.log($scope.user);
+    us.getprofile($scope);
 
 
+     $scope.check=function() {
+         if ($scope.ssn && $scope.name && $scope.idcard) {
+             us.checkprofile($scope.user, $scope.ssn,$scope.name,$scope.idcard)
+                 .then(function(data) {
+                     us.logout().then(function() {
+                         $scope.success = '绑定成功，请重新登录';
+                         $scope.user = null;
+                         $window.location = '/';
+                         console.log(window.location);
 
+                     }, function(error) {
+                         console.log(error);
+                     });
+
+                 },function(error) {
+
+                 $scope.error1 = error;
+             }) ;
+         } else {
+             $scope.error1 = "社保号码、姓名、身份证号不能为空";
+         }
+     }
 
     // submit form
     $scope.submit = function () {
-        if ($scope.ssn && $scope.name && $scope.mobilephone) {
+        if ($scope.ssn && $scope.name && $scope.idcard&&$scope.address&&$scope.mobilephone&&$scope.sex) {
             us.saveprofile($scope.user,$scope.ssn,$scope.name, $scope.mobilephone)
                 .then(function(data) {
-                    $scope.error = false;
+                    $scope.error2 = false;
                     $scope.success = '太好了，保存成功';
-                    $window.location = '/';
+                  //  $window.location = '/';
                 },function(error) {
-                    $scope.error = error;
+                    $scope.error2 = error;
                 }) ;
         }
         else {
-            $scope.error = "社保号码、姓名、手机不能为空";
+            $scope.error2 = "信息不能为空";
         }
     }
 

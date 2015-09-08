@@ -59,44 +59,6 @@ services.factory('user', function($http, $cookies, $q){
        * @returns {deferred.promise|{then, catch, finally}|k.promise|d.promise|Function|*}
        */
 
-    getprofile: function(user,$scope) {
-
-          console.log('before get');
-          console.log({username:user.username, email:user.email
-          });
-
-      $http.post('/getprofile',{username:user.username, email:user.email
-      }).success(function(data) {
-          console.log('return get data');console.log(data);
-
-          console.log('in get profile before return ');console.log(data);
-          $scope.ssn=data.ssn;
-          $scope.name=data.name;
-          $scope.mobilephone=data.mobilephone;
-
-        }).error(function(data) {
-          deferred.reject(data.error);
-        });
-
-    },
-      saveprofile: function(user,ssn,name,phone) {
-          var deferred = $q.defer();
-          console.log('before save');
-          console.log({username:user.username, email:user.email
-          });
-          $http.post('/saveprofile',{username:user.username,
-                                    ssn:ssn,
-                                    name:name,
-                                    mobilephone:phone}
-          ).success(function(data) {
-                  console.log('saveprofile success');
-                  deferred.resolve(data);
-          }).error(function(data) {
-              console.log('has err');
-              deferred.reject(data.error);}
-          );
-          return deferred.promise;
-      },
 
       get: function() {
           return angular.fromJson($cookies.user);

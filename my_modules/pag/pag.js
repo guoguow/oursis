@@ -16,7 +16,7 @@ function  Pag(user) {
 }
 
 mysql = client.getDbCon("sis");
-module.exports = User;
+module.exports = Pag;
 
 Pag.getlist =  function  getlist(a,tablename,condition,start,end,callback) {
 

@@ -22,40 +22,7 @@ var getErrorMessage = function(err) {
     return message;
 };
 
-/*
-exports.signin=function(req,res,next){
-    console.log('goto signin');
 
-    var lname=req.body.username;
-    var lpassword=req.body.password;
-    console.log(req.body);
-    var a="username,password";
-    var condition={name:"username",value:lname};
-    var tablename="user";
-    console.log(lname);
-    User.get(a,tablename,condition, function(err, user) {
-        console.log('enter callback');
-        console.log(user);
-        if (err) {
-            console.log('something wrong');
-            return next(err);
-        }
-        if (!user) {
-            console.log('user not exists');
-            message='User does not exists'
-            return res.json(404,{error:message});
-            };
-        if (!User.authenticate(user,lpassword)) {
-            console.log('incorrect password');
-            console.log(lpassword);
-            message='Incorrect Password'
-            return res.json(403,{error:message});
-        };
-        console.log('pass the UserManage');
-        return res.json(user);
-
-    });
-*/
 exports.signout = function(req, res) {
     req.logout();
     res.json({});
@@ -67,7 +34,7 @@ exports.signin=function(req,res,next){
     var lname=req.query.username;
     var lpassword=req.query.password;
     console.log(req.query);
-    var a="username,password";
+    var a="username,password,ssn";
     var condition={name:"username",value:lname};
     var tablename="user";
     console.log(lname);
@@ -94,25 +61,7 @@ exports.signin=function(req,res,next){
 
     });
 
-   /* passport.authenticate('local',function(err,user) {
-        console.log('succ ,enter passport authenticate');
-        if (err) {
-            console.log('err, do not know which kind of err');
-            return next(err);
-        }
-        if (!user) {
-            console.log('no such user');
-            return res.json({"message":"no such user"});
-        };
-        req.UserManage(user, function(err) {
-            if (err) {
-                console.log('req.UserManage err');
-                return next(err); }
-            console.log('req.UserManage succ');
-            return res.json(user);
-        });
 
-    })(req,res,next);*/
 
     console.log('end of sigin');
 };
@@ -163,31 +112,56 @@ exports.signup = function(req, res, next) {
 exports.getprofile=function(req,res,next) {
     console.log('goto get profile');
 
-    console.log(req.body);
-    var lname = req.body.username;
-    var a="username,ssn,name,mobilephone";
-    var condition={name:"username",value:lname};
-    var tablename="user";
-    console.log(lname);
-    User.get(a,tablename,condition, function (err, user) {
+    console.log(req.query);
+    var ssn = req.query.ssn;
+    var a="aac001 ssn,AAC003 name,AAC002 idcard,AAC004 sex,AAE005 mobilephone,BAC005 address ";
+    var condition={name:"aac001",value:ssn};
+    var tablename="bi3.ac01";
+    User.get(a,tablename,condition, function (err, data) {
 
         if (err) {
             console.log('something wrong');
             return next(err);
         }
         console.log('return profile');
-        console.log(user);
-        return res.json(user);
+        console.log(data);
+        return res.json(data);
 
     })
 };
 /*  new chevk chagnge by lww 08-10 */
-var checkProfile=function(lname,ssn,callback){
-    var a="ssn";
-    var condition={name:"ssn",value:ssn};
-    var tablename="sn";
-    var message = null;
+exports.checkprofile=function(req,res,next){
+    var lname = req.body.username;
+    var ssn = req.body.ssn;
+    var mes=check(lname,ssn,function(err,message){
 
+        console.log("++++++++++++++++"+message);
+        if (!message) {
+            var user = new User(req.body);
+            user.update(function (error,data) {
+                if (error) {
+                    return next(error);
+                    console.log("error"+error);
+                } else {
+                    console.log('update ok!'+data);
+
+                    return res.json(data);
+                }
+
+            });
+
+        } else {
+            return res.json(403, {error: message});
+        }
+    });
+
+};
+var check=function(lname,ssn,callback){
+
+    var message = null;
+    var a = "ssn,username";
+    var condition = {name: "ssn", value: ssn};
+    var tablename = "user";
     console.log(lname);
     User.get(a,tablename,condition,function(err,user,fields) {
         if (err) {
@@ -195,14 +169,17 @@ var checkProfile=function(lname,ssn,callback){
             throw (err);
         }
         ;
-        if (!user) {
-            message = 'ssn not exists';
-            return  callback(err,message,fields);
+        if (user) {
+            if (user.username != lname) {
+                console.log('ssn has already been used');
+                message = 'ssn has already been used';
+                return  callback(err,message,fields);              }
         }
+
         ;
-        var a = "ssn,username";
-        var condition = {name: "ssn", value: ssn};
-        var tablename = "user";
+        var a="aac001 ssn";
+        var condition={name:"aac001",value:ssn};
+        var tablename="bi3.ac01";
         User.get(a, tablename, condition, function (err, user,fields) {
 
             if (err) {
@@ -210,11 +187,9 @@ var checkProfile=function(lname,ssn,callback){
                 throw (err);
             }
             ;
-            if (user) {
-                if (user.username != lname) {
-                    console.log('ssn has already been used');
-                    message = 'ssn has already been used';
-                    return  callback(err,message,fields);              }
+            if (!user) {
+                message = 'ssn not exists';
+                return  callback(err,message,fields);
             }
             return  callback(err,message,fields);
         });
@@ -225,7 +200,7 @@ exports.saveprofile=function(req,res,next) {
     console.log('go into save profile');
     var lname = req.body.username;
     var ssn = req.body.ssn;
-    var message=checkProfile(lname,ssn,function(err,message){
+    var mes=check(lname,ssn,function(err,message){
 
         console.log("++++++++++++++++"+message);
         if (!message) {

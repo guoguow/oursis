@@ -75,14 +75,37 @@ User.prototype.update =  function  update(callback) {
         username:this.username,
         password: this.password,
         ssn:this.ssn,
-        name:this.name,
-        mobilephone:this.mobilephone
+        name:this.name
+
 
 
     };
-    var sql = "update user set ssn=?,name=?,mobilephone=? where username=?";
+    var sql = "update user set ssn=? where username=?";
     console.log(sql);
-    mysql.query(sql,[user.ssn,user.name,user.mobilephone,user.username],function(err,results,fields){
+    mysql.query(sql,[user.ssn,user.username],function(err,results,fields){
+        if(err){
+            throw err;
+        }else{
+            console.log(callback);
+            return  callback(err,user.ssn,fields);
+        }
+    });
+
+};
+User.prototype.update2 =  function  update(callback) {
+    var  user = {
+
+        ssn:this.ssn,
+        name:this.name,
+        idcard:this.idcard,
+        mobilephone:this.mobilephone,
+        sex:this.sex,
+        address:this.address
+
+    };
+    var sql = "update bi3.ac01 set aac001=?,AAC003=?,AAC002=?,AAE005=?,AAC004=?,BAC005=? where aac001=?";
+    console.log(sql);
+    mysql.query(sql,[user.ssn,user.name,user.idcard,user.mobilephone,user.sex,user.address,user.ssn],function(err,results,fields){
         if(err){
             throw err;
         }else{
