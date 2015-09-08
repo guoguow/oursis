@@ -72,25 +72,42 @@ services.factory('us', function($http, $cookies, $q){
           });
           return deferred.promise;
       },
-      getprofile: function(user,$scope) {
+      getprofile: function($scope) {
 
           console.log('before get');
-          console.log({username:user.username, email:user.email
-          });
 
-          $http.post('/getprofile',{username:user.username, email:user.email
-          }).success(function(data) {
+          $http.get('/profile',{params:{username:$scope.user.username, ssn:$scope.user.ssn
+          }}).success(function(data) {
               console.log('return get data');console.log(data);
 
               console.log('in get profile before return ');console.log(data);
               $scope.ssn=data.ssn;
               $scope.name=data.name;
               $scope.mobilephone=data.mobilephone;
-
+              $scope.idcard=data.idcard;
+              $scope.address=data.address;
+              $scope.sex=data.sex;
           }).error(function(data) {
               deferred.reject(data.error);
           });
 
+      },
+      checkprofile: function(user,ssn,name,idcard,$scope) {
+          var deferred = $q.defer();
+          console.log('before check');
+
+          $http.post('/checkprofile',{username:user.username, ssn:ssn,name:name,idcard:idcard
+              }).success(function(data) {
+              console.log("++++++++++"+data);
+              console.log($cookies.user);
+              console.log('return get data');
+
+              console.log('in get profile before return ');console.log(data);
+              deferred.resolve(data);
+          }).error(function(data) {
+              deferred.reject(data.error);
+          });
+          return deferred.promise;
       },
       saveprofile: function(user,ssn,name,phone) {
           var deferred = $q.defer();
