@@ -5,7 +5,7 @@ services.factory('setpay', function($http, $cookies,$q){
 
     return {
 
-        reset: function(user,$scope) {
+      /*  reset: function(user,$scope) {
 
            console.log('clean  all the payforsign to null');
 
@@ -18,13 +18,13 @@ services.factory('setpay', function($http, $cookies,$q){
               //  deferred.reject(data.error);
                 console.log('error happened when reset front');
             });
-        },
+        },*/
         setpay1: function(user,$scope) {
 
             console.log('before to set endowment signforpay=1');
 
-            $http.post('/setendow').success(function() {
-                console.log('sucess to set endowment signforpay=1 ');
+            $http.post('/setendow',{username:user.username}).success(function() {
+                console.log('front   sucess to set endowment signforpay=1 ');
              //   $scope.ph=data;
 
             }).error(function() {
@@ -36,7 +36,7 @@ services.factory('setpay', function($http, $cookies,$q){
 
             console.log('before to set health signforpay=1');
 
-            $http.post('/sethealth').success(function() {
+            $http.post('/sethealth',{username:user.username}).success(function() {
                 console.log('sucess to set  health signforpay=1 ');
             }).error(function() {
                 console.log('error happened when set  health signforpay=1');
@@ -53,11 +53,11 @@ services.factory('pay', function($http, $cookies,$q){
 
   return {
 
-      py: function($scope) {
+      py: function(user,$scope) {
 
           console.log('before get payhist data');
 
-          $http.post('/pay').success(function(data) {
+          $http.post('/pay',{username:user.username}).success(function(data) {
               console.log('return get payhist data for the page');
               console.log(data);
               $scope.ph=data;
