@@ -18,7 +18,7 @@ module.exports = User;
 //获取用户
 User.get =  function  get(a,tablename,condition,callback) {
 
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'";
+    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'"+"limit 1";
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){

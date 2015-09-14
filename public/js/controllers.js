@@ -17,8 +17,6 @@ app.controller('MainCtrl', function ($scope, user,pag) {
 
     $scope.user = user.get();
     console.log("user =", user);
-
-
 });
 /**
  *

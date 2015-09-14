@@ -58,7 +58,7 @@ exports.reset=function(req,res,next){
             }
         })
 };
-*/
+
 exports.setendow=function(req,res,next){
     console.log('goto set signforpay=1 for endowment ');
     console.log(req.body);
@@ -76,19 +76,20 @@ exports.setendow=function(req,res,next){
         }
     })
 };
-exports.sethealth=function(req,res,next){
-    console.log('goto set signforpay=2 for health ');
-    console.log(req.body);
-    var statsign="2";
-    var tablename="userstat";
-    var condition={name:"username",value:req.body.username};
+ exports.sethealth=function(req,res,next){
+ console.log('goto set signforpay=2 for health ');
+ console.log(req.body);
+ var statsign="2";
+ var tablename="userstat";
+ var condition={name:"username",value:req.body.username};
 
-    Pay.setsign(statsign,tablename,condition, function (error) {
-        if (error) {
-            return next(error);
-            console.log(error);
-        } else {
-            console.log('sucess to set health signstat=2 ok!');
-        }
-    })
-};
+ Pay.setsign(statsign,tablename,condition, function (error) {
+ if (error) {
+ return next(error);
+ console.log(error);
+ } else {
+ console.log('sucess to set health signstat=2 ok!');
+ }
+ })
+ };
+ */
