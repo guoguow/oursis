@@ -15,7 +15,7 @@ config(function ($routeProvider, $locationProvider) {
       }).
 
       when('/health', {
-          templateUrl: 'public/views/health.html',
+          templateUrl: 'public/views/birth.html',
           controller: 'HealthCtrl'
       }).*/
         otherwise({

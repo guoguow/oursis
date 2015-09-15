@@ -10,6 +10,12 @@ module.exports=function(app){
     require('../../my_modules/payhist/app/routes/user.server.routes.js')(app);
     require('../../public/endowment/app/routes/user.server.routes.js')(app);
     require('../../public/health/app/routes/user.server.routes.js')(app);
+    require('../../public/birth/app/routes/user.server.routes.js')(app);
+    require('../../public/injury/app/routes/user.server.routes.js')(app);
+    require('../../public/unemployment/app/routes/user.server.routes.js')(app);
+
+
+
    // app.route('/signup').post(usermanage.signup);
  //   app.route('/signin').get(usermanage.signin);
   //  app.get('/signout',usermanage.signout);
