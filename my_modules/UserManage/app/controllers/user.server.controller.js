@@ -133,7 +133,9 @@ exports.getprofile=function(req,res,next) {
 exports.checkprofile=function(req,res,next){
     var lname = req.body.username;
     var ssn = req.body.ssn;
-    var mes=check(lname,ssn,function(err,message){
+    var sname=req.body.name;
+    var idcard=req.body.idcard;
+    var mes=check(lname,ssn,sname,idcard,function(err,message){
 
         console.log("++++++++++++++++"+message);
         if (!message) {
@@ -156,7 +158,7 @@ exports.checkprofile=function(req,res,next){
     });
 
 };
-var check=function(lname,ssn,callback){
+var check=function(lname,ssn,sname,idcard,callback){
 
     var message = null;
     var a = "ssn,username";
@@ -191,11 +193,27 @@ var check=function(lname,ssn,callback){
                 message = 'ssn not exists';
                 return  callback(err,message,fields);
             }
-            return  callback(err,message,fields);
+            var a="aac001 ssn";
+            var tablename="bi3.ac01";
+            User.check(a, tablename, ssn,sname,idcard, function (err, user,fields) {
+
+                if (err) {
+                    console.log('something wrong');
+                    throw (err);
+                }
+                ;
+                if (!user) {
+                    message = '姓名或身份证号不匹配';
+                    return  callback(err,message,fields);
+                }
+                return  callback(err,message,fields);
+            });
+
         });
     });
 
 };
+/*
 exports.saveprofile=function(req,res,next) {
     console.log('go into save profile');
     var lname = req.body.username;
@@ -224,5 +242,5 @@ exports.saveprofile=function(req,res,next) {
 
 };
 
-
+*/
 

@@ -12,7 +12,7 @@ app.controller('PayCtrl', function ($scope, $window,pay) {
 
 });
 /**
- *payhist.html`s  pay controller
+ *payment.html`s  pay controller
  * for payhist modules
 
 
