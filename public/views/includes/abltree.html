@@ -24,15 +24,25 @@
                         <ul class="dropdown-menu menu-top">
                             <table  >
                             <tr ng-repeat="si in st1">
-                                 <td><a href="#">{{si.sign}} </a></td>
-                                  <td><a href="#">{{si.kind}}</a></td></tr>
+                                 <td>{{si.sign}} </a></td>
+                                  <td><a href="/endowment">{{si.kind}}</a></td></tr>
                                 <tr ng-repeat="si in st2">
                                     <td><a href="#">{{si.sign}} </a></td>
-                                    <td><a href="#">{{si.kind}}</a></td> </tr>
+                                    <td><a href="/health">{{si.kind}}</a></td> </tr>
                                 <tr ng-repeat="si in st3">
                                     <td><a href="#">{{si.sign}} </a></td>
-                                    <td><a href="#">{{si.kind}}</a></td>
+                                    <td><a href="/birth">{{si.kind}}</a></td>
                                                       </tr>
+                                <tr ng-repeat="si in st4">
+                                    <td><a href="#">{{si.sign}} </a></td>
+                                    <td><a href="/injury">{{si.kind}}</a></td>
+                                </tr>
+                                <tr ng-repeat="si in st5">
+                                <td><a href="#">{{si.sign}} </a></td>
+                                <td><a href="/unemployment">{{si.kind}}</a></td>
+                            </tr>
+
+
 </table>
                                                   </ul>
                                               </li>

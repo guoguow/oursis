@@ -1,11 +1,11 @@
 
 var services = angular.module('myApp.services');
-
+/*
 services.factory('setpay', function($http, $cookies,$q){
 
     return {
 
-      /*  reset: function(user,$scope) {
+  reset: function(user,$scope) {
 
            console.log('clean  all the payforsign to null');
 
@@ -18,7 +18,7 @@ services.factory('setpay', function($http, $cookies,$q){
               //  deferred.reject(data.error);
                 console.log('error happened when reset front');
             });
-        },*/
+        },
         setpay1: function(user,$scope) {
 
             console.log('before to set endowment signforpay=1');
@@ -42,11 +42,9 @@ services.factory('setpay', function($http, $cookies,$q){
                 console.log('error happened when set  health signforpay=1');
             });
         }
-
     };
-
 });
-
+       */
 
 // share user information across controllers
 services.factory('pay', function($http, $cookies,$q){
