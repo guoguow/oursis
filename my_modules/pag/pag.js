@@ -18,9 +18,10 @@ function  Pag(user) {
 mysql = client.getDbCon("sis");
 module.exports = Pag;
 
-Pag.get =  function  get(a,tablename,condition,start,end,callback) {
 
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"' limit "+start+","+end;
+Pag.get =  function  get(a,tablename,condition,condition2,start,end,callback) {
+
+    var sql = "select "+a+" from " +tablename+" where "+condition+condition2+" limit "+start+","+end;
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){
@@ -33,24 +34,9 @@ Pag.get =  function  get(a,tablename,condition,start,end,callback) {
     });
 
 };
-Pag.get2 =  function  get2(a,tablename,condition,condition2,start,end,callback) {
+Pag.getCount =  function  getCount(tablename,condition,condition2,callback) {
 
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"' and "+condition2.name+"='"+condition2.value+"' limit "+start+","+end;
-    console.log(sql);
-    mysql.query(sql,function(err,results,fields){
-        if(err){
-            throw err;
-        }else{
-            console.log(results);
-            console.log(callback);
-            return  callback(err,results,fields);
-        }
-    });
-
-};
-Pag.getCount =  function  getCount(tablename,condition,callback) {
-
-    var sql = "select count(*) count from " +tablename+" where "+condition.name+" ='"+condition.value+"'";
+    var sql = "select count(*) count from " +tablename+" where "+condition+condition2;
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){
@@ -64,18 +50,3 @@ Pag.getCount =  function  getCount(tablename,condition,callback) {
 
 };
 
-Pag.getCount2 =  function  getCount2(tablename,condition,condition2,callback) {
-
-    var sql = "select count(*) count from " +tablename+" where "+condition.name+" ='"+condition.value+"' and "+condition2.name+"='"+condition2.value+"'";
-    console.log(sql);
-    mysql.query(sql,function(err,results,fields){
-        if(err){
-            throw err;
-        }else{
-            console.log(results);
-            console.log(callback);
-            return  callback(err,results[0],fields);
-        }
-    });
-
-};

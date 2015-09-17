@@ -8,6 +8,7 @@ module.exports=function(app){
     require('../../my_modules/list/app/routes/user.server.routes.js')(app);
     require('../../my_modules/sistype/app/routes/user.server.routes.js')(app);
     require('../../my_modules/payhist/app/routes/user.server.routes.js')(app);
+
     require('../../public/endowment/app/routes/user.server.routes.js')(app);
     require('../../public/health/app/routes/user.server.routes.js')(app);
     require('../../public/birth/app/routes/user.server.routes.js')(app);
