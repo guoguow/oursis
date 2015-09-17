@@ -23,7 +23,7 @@ exports.pay=function(req,res,next){
             };
             console.log(stat);
 
-            var a="sign,kind,value1,value2,value3,value4";
+            var a="sign,kind,value1,value2,value3,value4,value5,value6,value7,value8";
             var condition={name:"sign",value:stat.statsign};
             var tablename="paydata";
         Pay.getpay(a,tablename,condition, function(err, data) {
