@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <html ng-app="myApp">
+    <head>
+        <meta charset="utf8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pay History for public-home</title>
+        <link rel="stylesheet" href="public/css/bootstrap.min.css">
+        <script src="public/js/lib/ui-bootstrap-tpls-0.13.4.min.js"></script>
+
+    </head>
+<body  >
+
+<ng-include src="'my_modules/DateSelect/date.html'"></ng-include>
+
+    <div>
+
+       <!--  why  sa.kind not show in the html?????????? not resloved -->
+                <p>{{user.username}}的医疗支付信息</p>
+
+            <ul class="nav nav-tabs" id="mytab">
+                <li ng-repeat="item in listNames"  ng-class="{active: $index == 0}">
+                    <a  data-toggle="tab" ng-click="isTab(item.id)"> {{item.name}}</a>
+                </li>
+            </ul>
+
+        <hr>
+
+        <div>
+            <table  >
+                <tr >
+
+                    <th ng-repeat="item in list" width="10%">{{item.value}}&nbsp;&nbsp;&nbsp;</th>
+
+                </tr>
+                <tr ng-repeat="item in payments">
+
+                    <td width="10%">{{item.yybm}} </td>
+                    <td width="10%">{{item.jbbm}} </td>
+                    <td width="10%">{{item.zyrq|date:'yyyy-MM-dd'}} </td>
+                    <td width="10%">{{item.cyrq|date:'yyyy-MM-dd'}} </td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+<ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
+
+</body>
+</html>

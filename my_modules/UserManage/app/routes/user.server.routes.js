@@ -10,7 +10,7 @@ module.exports=function(app){
     app.get('/signout',usermanage.signout);
     app.route('/profile').get(usermanage.getprofile);
     app.route('/checkprofile').post(usermanage.checkprofile);
-    app.route('/saveprofile').post(usermanage.saveprofile);
+   // app.route('/saveprofile').post(usermanage.saveprofile);
     //  app.route('/signin').get(users.signin);
     // app.get('/signin',users.signin);
 

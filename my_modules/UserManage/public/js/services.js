@@ -108,7 +108,8 @@ services.factory('us', function($http, $cookies, $q){
               deferred.reject(data.error);
           });
           return deferred.promise;
-      },
+      }
+      /*
       saveprofile: function(user,ssn,name,phone) {
           var deferred = $q.defer();
           console.log('before save');
@@ -126,7 +127,7 @@ services.factory('us', function($http, $cookies, $q){
                   deferred.reject(data.error);}
           );
           return deferred.promise;
-      }
+      }*/
   };
 
 });
