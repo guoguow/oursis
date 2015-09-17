@@ -5,7 +5,7 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider.
 
       when('/pay', {
-          templateUrl: 'my_modules/payhist/public/payhist.html',
+          templateUrl: 'my_modules/payhist/public/payment.html',
           controller: 'PayCtrl'
       }).
 

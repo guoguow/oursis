@@ -64,7 +64,21 @@ User.get =  function  get(a,tablename,condition,callback) {
     });
 
 };
+User.check =  function  check(a,tablename,ssn,sname,idcard,callback) {
 
+    var sql = "select "+a+" from " +tablename+" where aac001='"+ssn+"' and aac003='"+sname+"' and aac002='"+idcard+"'";
+    console.log(sql);
+    mysql.query(sql,function(err,results,fields){
+        if(err){
+            throw err;
+        }else{
+            console.log(results);
+            console.log(callback);
+            return  callback(err,results[0],fields);
+        }
+    });
+
+};
 
 //更新基本信息
 User.prototype.update =  function  update(callback) {

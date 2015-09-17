@@ -8,6 +8,7 @@ module.exports=function(app){
     require('../../my_modules/list/app/routes/user.server.routes.js')(app);
     require('../../my_modules/sistype/app/routes/user.server.routes.js')(app);
     require('../../my_modules/payhist/app/routes/user.server.routes.js')(app);
+    require('../../my_modules/payment/app/routes/user.server.routes.js')(app);
 
 
    // app.route('/signup').post(usermanage.signup);

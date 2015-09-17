@@ -3,7 +3,7 @@ var app = angular.module('myApp.controllers');
 
 
 /**
- *payhist.html`s  pay controller
+ *payment.html`s  pay controller
  * for payhist modules
  */
 

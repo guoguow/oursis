@@ -94,7 +94,7 @@ app.controller('ProfileCtrl', function ($scope, $window,user, us) {
              $scope.error1 = "社保号码、姓名、身份证号不能为空";
          }
      }
-
+/*
     // submit form
     $scope.submit = function () {
         if ($scope.ssn && $scope.name && $scope.idcard&&$scope.address&&$scope.mobilephone&&$scope.sex) {
@@ -111,7 +111,7 @@ app.controller('ProfileCtrl', function ($scope, $window,user, us) {
             $scope.error2 = "信息不能为空";
         }
     }
-
+*/
 });
 
 
