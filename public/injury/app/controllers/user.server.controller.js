@@ -19,3 +19,33 @@ exports.setinjury=function(req,res,next){
         }
     })
 };
+exports.injuryindex=function(req,res,next){
+    console.log('goto get injury  index page data');
+    console.log(req.body);
+    //select max(a.AAE034),sum(a.BAB061),je
+    //from si3.ac60 a,(select sum(AAE019) je,aac001 from ad3.ic17 where aac001='00010070110000053695') b
+    //where a.aac001=b.aac001
+
+    var da=req.body.ssn;
+    var a="aae034";
+    var b="bab061"
+    var c="alc072"
+    var d="aae002"
+    var condition={name:"aac001",value:da};
+    var tablename1="si3.ac63";
+    var tablename2="hm3.lC33";
+
+    Pay.getindex(a,b,c,d,tablename1,tablename2,condition, function(err, data) {
+        if (err) {
+            console.log('something wrong');
+            return next(err);
+        }
+        if (!data) {
+            console.log('failed get index  data ');
+            message='failed get index data'
+            return res.json(404,{error:message});
+        };
+        console.log('sucess to get the endowment index detail data');
+        return res.json(data);
+    });
+};

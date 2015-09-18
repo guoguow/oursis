@@ -56,3 +56,20 @@ Pay.setsign =  function  update(statsign,tablename,condition,callback) {
     });
 
 };
+Pay.getindex=  function  get(a,b,c,d,tablename1,tablename2,condition,callback) {
+    //select max(a.AAE034),sum(a.BAB061),je
+    //from si3.ac60 a,(select sum(AAE019) je,aac001 from ad3.ic17 where aac001='00010070110000053695') b
+    //where a.aac001=b.aac001
+
+    var sql = "select max(a."+a+" ) dm,sum(a."+b+") pm,je,rm  from " +tablename1+" a,(select max(b."+d+" )  rm, sum("+c+") je  from "+tablename2+ " b  where "+condition.name+" ='"+condition.value+"' ) b where a."+condition.name+" = '"+condition.value +" '";
+    console.log(sql);
+    mysql.query(sql,function(err,results,fields){
+        if(err){
+            throw err;
+        }else{
+            console.log(results);
+            console.log(callback);
+            return  callback(err,results,fields);
+        }
+    });
+};

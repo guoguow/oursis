@@ -130,7 +130,7 @@ exports.getsistype4=function(req,res,next) {
             console.log('something wrong');
             return next(err);
         };
-        var a="sign,kind";
+        var a="sign,kind,link,link1,link2";
         var condition={name:"sign",value:4};
         var tablename="sistype";
         User.gettype(a,tablename,condition, function (err, user) {
