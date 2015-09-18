@@ -43,12 +43,12 @@ Pay.getbydate=  function  get(a,tablename,condition1,condition2,callback) {
 
 };
 //get endowment index data 获取
-Pay.getindex=  function  get(a,b,c,tablename1,tablename2,condition,callback) {
+Pay.getindex=  function  get(a,b,tablename1,condition,callback) {
     //select max(a.AAE034),sum(a.BAB061),je
     //from si3.ac60 a,(select sum(AAE019) je,aac001 from ad3.ic17 where aac001='00010070110000053695') b
     //where a.aac001=b.aac001
 
-    var sql = "select max(a."+a+" ) dm,sum(a."+b+") pm,je from " +tablename1+" a,(select sum("+c+") je  from "+tablename2+ " where "+condition.name+" ='"+condition.value+"' ) b where a."+condition.name+" = "+condition.value +"";
+    var sql = "select max(a."+a+" ) dm,sum(a."+b+") pm from " +tablename1+" a  where a."+condition.name+" = "+condition.value +"";
 
     console.log(sql);
     mysql.query(sql,function(err,results,fields){

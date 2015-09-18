@@ -8,7 +8,10 @@ config(function ($routeProvider, $locationProvider) {
           templateUrl: 'public/health/health.html',
           controller: 'HealthCtrl'
       }).
-
+      when('/healthpm', {
+          templateUrl: 'public/health/healthpm.html',
+          controller: 'HealthPmCtrl'
+      }).
         otherwise({
           redirectTo: '/'
       });

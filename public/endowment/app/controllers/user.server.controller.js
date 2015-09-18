@@ -113,19 +113,19 @@ exports.endowindex=function(req,res,next){
     var da=req.body.ssn;
     var a="aae034";
     var b="bab061"
-    var c="aae019"
+   // var c="aae019"
     var condition={name:"aac001",value:da};
     var tablename1="si3.ac60";
-    var tablename2="ad3.ic17";
+  //  var tablename2="ad3.ic17";
 
-    Pay.getindex(a,b,c,tablename1,tablename2,condition, function(err, data) {
+    Pay.getindex(a,b,tablename1,condition, function(err, data) {
         if (err) {
             console.log('something wrong');
             return next(err);
         }
         if (!data) {
             console.log('failed get index  data ');
-            message='failed get index data'
+            message='failed get index data';
             return res.json(404,{error:message});
         };
         console.log('sucess to get the endowment index detail data');

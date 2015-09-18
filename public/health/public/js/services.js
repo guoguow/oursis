@@ -16,39 +16,39 @@ services.factory('health', function($http, $cookies,$q){
                 console.log('error happened when set  health signforpay=2');
             });
         }
-/*
-        payhist: function(user,$scope,dt1,dt2) {
-
-            console.log('before get payhist data');
-
-            $http.post('/endowpay',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
-                console.log('return get endowment detail  payhist data ');
-                console.log(data);
-                $scope.epay=data;
-
-            }).error(function(data) {
-                //  deferred.reject(data.error);
-                console.log(' error happened when return get endowment detail  payhist data for the page');
-            });
-        },
-       paid: function(user,$scope,dt1,dt2) {
-
-        console.log('before get paid data');
-
-        $http.post('/endowpaid',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
-            console.log('return get endowment detail  paid data ');
-            console.log(data);
-            $scope.epaid=data;
-
-        }).error(function(data) {
-            //  deferred.reject(data.error);
-            console.log(' error happened when return get endowment detail  paid data for the page');
-        });
-    }*/
     };
 });
 
+services.factory('healthpm', function($http, $cookies,$q) {
 
+    return {
+
+        getPayment: function ($scope,jylb) {
+
+
+            $http.post('/healthpm', {ssn:$scope.user.ssn,jylb:jylb,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:$scope.dt1,dt2:$scope.dt2}).success(function (data) {
+                $scope.payments = data;
+
+            }).error(function (data) {
+                // deferred.reject(data.error);
+                deferred.reject(data.error);
+            });
+        },
+        getAll: function ($scope,jylb) {
+
+
+            $http.post('/healthpmCount', {ssn:$scope.user.ssn,jylb:jylb,dt1:$scope.dt1,dt2:$scope.dt2}).success(function (data) {
+
+                $scope.totalPage = Math.ceil(data.count/$scope.pageSize)-1;
+                $scope.endPage = $scope.totalPage;
+                console.log($scope.totalPage);
+            }).error(function (data) {
+                // deferred.reject(data.error);
+                deferred.reject(data.error);
+            });
+        }
+    };
+});
 
 
 
