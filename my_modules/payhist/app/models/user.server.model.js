@@ -27,9 +27,9 @@ Pay.get =  function  get(a,tablename,condition,callback) {
 
 };
 //获取
-Pay.getpay=  function  get(a,tablename,condition,callback) {
+Pay.getpay=  function  get(a,tablename,condition1,condition2,callback) {
 
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'";
+    var sql = "select "+a+" from " +tablename+" where "+condition1.name+" ='"+condition1.value+"'"+" and "+condition2.name+" ='"+condition2.value+"'";
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){

@@ -20,6 +20,41 @@ exports.setendow=function(req,res,next){
         }
     })
 };
+
+exports.setpaysign=function(req,res,next){
+    console.log('goto set orsign=1 for endowment ');
+    console.log(req.body);
+
+    var orsign="1";
+    var tablename="userstat";
+    var condition={name:"username",value:req.body.username};
+
+    Pay.setorsign(orsign,tablename,condition, function (error) {
+        if (error) {
+            return next(error);
+            console.log(error);
+        } else {
+            console.log('sucess  to set endowment orsign=1 ok!');
+        }
+    })
+};
+exports.setpaidsign=function(req,res,next){
+    console.log('goto set orsign=0 for endowment ');
+    console.log(req.body);
+
+    var orsign="0";
+    var tablename="userstat";
+    var condition={name:"username",value:req.body.username};
+
+    Pay.setorsign(orsign,tablename,condition, function (error) {
+        if (error) {
+            return next(error);
+            console.log(error);
+        } else {
+            console.log('sucess  to set endowment orsign=0 ok!');
+        }
+    })
+};
 //change by guoguow0915  use function realize
 var decide=function(startdate,a,da,condition1,condition2,tablename,callback){
     if(!startdate)

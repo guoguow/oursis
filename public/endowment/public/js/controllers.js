@@ -18,7 +18,10 @@ app.controller('EndowmentCtrl', function ($scope, $window,endow) {
     console.log("reset set payforsign  for endowment");
     endow.setpay1($scope.user,$scope);
 });
+
 app.controller('EndowPayCtrl', function ($scope, $window,endow) {
+
+    endow.setpaysign($scope.user,$scope);
 
     console.log('before get endowment detail payhist data');
 
@@ -40,6 +43,8 @@ app.controller('EndowPayCtrl', function ($scope, $window,endow) {
 });
 
 app.controller('EndowPaidCtrl', function ($scope, $window,endow) {
+
+    endow.setpaidsign($scope.user,$scope);
 
     console.log('before get endowment paid detail data');
 
