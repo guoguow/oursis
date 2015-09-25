@@ -9,7 +9,7 @@ exports.pay=function(req,res,next){
     console.log(req.body);
     console.log(req.body);
 
-        var a="statsign";
+        var a="statsign,orsign";
         var condition={name:"username",value:req.body.username};
         var tablename="userstat";
     Pay.get(a,tablename,condition, function (err, stat) {
@@ -23,10 +23,12 @@ exports.pay=function(req,res,next){
             };
             console.log(stat);
 
-            var a="sign,kind,value1,value2,value3,value4,value5,value6,value7,value8";
-            var condition={name:"sign",value:stat.statsign};
+            var a="sign,kind,wsign,value1,value2,value3,value4";
+            var condition1={name:"sign",value:stat.statsign};
+            var condition2={name:"wsign",value:stat.orsign};
             var tablename="paydata";
-        Pay.getpay(a,tablename,condition, function(err, data) {
+
+            Pay.getpay(a,tablename,condition1,condition2, function(err, data) {
                 console.log('enter callback');
                 console.log(data);
                 if (err) {
@@ -43,6 +45,7 @@ exports.pay=function(req,res,next){
             });
             console.log('end of payhist choose');
         })
+
 };
 /*
 exports.reset=function(req,res,next){

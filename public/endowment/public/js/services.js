@@ -45,6 +45,31 @@ services.factory('endow', function($http, $cookies,$q){
                 console.log('error happened when set endowment signforpay=1');
             });
         },
+
+        setpaysign: function(user,$scope) {
+
+            console.log('before to set endowment orsign=1');
+
+            $http.post('/setpaysign',{username:user.username}).success(function() {
+                console.log('front   sucess to set endowment orsign=1 ');
+                //   $scope.ph=data;
+            }).error(function() {
+                // deferred.reject(data.error);
+                console.log('error happened when set endowment orsign=1');
+            });
+        },
+        setpaidsign: function(user,$scope) {
+
+            console.log('before to set endowment orsign=0');
+
+            $http.post('/setpaidsign',{username:user.username}).success(function() {
+                console.log('front   sucess to set endowment orsign=0 ');
+                //   $scope.ph=data;
+            }).error(function() {
+                // deferred.reject(data.error);
+                console.log('error happened when set endowment orsign=0');
+            });
+        },
         getindex: function(user,$scope) {
 
             console.log('before to get endowment index data');

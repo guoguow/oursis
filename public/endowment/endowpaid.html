@@ -1,6 +1,5 @@
 <!--* creat by guoguow 0909-->
 <!DOCTYPE html>
-<html>
 <html ng-app="myApp">
 <head>
     <meta charset="utf8">
@@ -10,8 +9,13 @@
 </head>
 
 <body>
-<p>{{user.username}}的养老发放支付历史明细</p>
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li><a href="/endowment">养老</a></li>
+    <li class="active">发放支付明细</li>
+</ol>
 
+<p>{{user.username}}的养老发放支付历史明细</p>
 
 <div ng-controller="EndowPaidCtrl" >
 
@@ -39,7 +43,7 @@
 
         <input type="submit" class="btn btn-primary" value="筛选">
     </form>
-    <ng-include src="'my_modules/payhist/public/paid.html'"></ng-include>
+    <ng-include src="'my_modules/payhist/public/payhist.html'"></ng-include>
 
    <table>
         <tr ng-repeat="saa in epaid">

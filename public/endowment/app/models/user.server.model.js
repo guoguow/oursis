@@ -75,3 +75,17 @@ Pay.setsign =  function  update(statsign,tablename,condition,callback) {
     });
 
 };
+Pay.setorsign =  function  update(orsign,tablename,condition,callback) {
+
+    var sql = "update " +tablename +" set orsign = "+orsign+" where  "+condition.name+" ='"+condition.value+"'";
+    console.log(sql);
+    mysql.query(sql,function(err,results,fields){
+        if(err){
+            throw err;
+        }else{
+            console.log(callback);
+            return  callback(err,fields);
+        }
+    });
+
+};

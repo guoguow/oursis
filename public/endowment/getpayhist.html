@@ -1,6 +1,6 @@
 <!--* creat by guoguow 0909-->
 <!DOCTYPE html>
-<html>
+
 <html ng-app="myApp">
 <head>
     <meta charset="utf8">
@@ -10,9 +10,14 @@
 </head>
 
 <body>
+
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li><a href="/endowment">养老</a></li>
+    <li class="active">缴费历史明细</li>
+</ol>
+
 <p>{{user.username}}的养老缴费历史明细</p>
-
-
 <div ng-controller="EndowPayCtrl" >
 
     <form ng-submit="submit()">
@@ -58,6 +63,5 @@
     </table>
 </div>
 
-</form>
 </body>
 </html>
