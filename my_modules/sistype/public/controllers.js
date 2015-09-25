@@ -1,32 +1,20 @@
-
+/**
+ * Created by LuWenWen on 2015/9/22.
+ */
 var app = angular.module('myApp.controllers');
 
+
 /**
- * Main / Root controller
+ * Login controller
  */
-app.controller('TypeCtrl', function ($scope, $window, type) {
+app.controller('TypeCtrl', function ($scope, $window,user) {
+    $scope.st1=user.getSt1();
 
-    console.log('before get typelist');
-
-    // submit form
-    type.getsistype($scope.user,$scope);
-    //type.reset($scope);
-
+    $scope.st2=user.getSt2();
+    $scope.st3=user.getSt3();
+    $scope.st4=user.getSt4();
+    $scope.st5=user.getSt5();
 
 
-    /*   .then(function(data) {
-     $scope.error = false;
-     $scope.success = 'ok ,success to get sistype ';
-     $window.location = '/';
-     },function(error) {
-     $scope.error = error;
-     }) ;
-     if ($scope.sign && $scope.kind) {
-
-     }
-     else {
-     $scope.error = "false";
-     }*/
 
 });
-

@@ -32,7 +32,7 @@ services.factory('us', function($http, $cookies, $q){
           }}).success(function(data) {
               // now get some information about the user
               $cookies.user = angular.toJson(data);
-              console.log('cookies user profile');console.log($cookies.user.profile);
+              console.log('cookies user ');
               deferred.resolve(data);
           }).error(function(data) {
               deferred.reject(data.error);
@@ -45,6 +45,12 @@ services.factory('us', function($http, $cookies, $q){
           $http.get('/signout')
               .success(function() {
                   delete $cookies.user;
+                  delete $cookies.st1;
+                  delete $cookies.st2;
+                  delete $cookies.st3;
+                  delete $cookies.st4;
+                  delete $cookies.st5;
+
                   deferred.resolve();
               }).error(function(data) {
                   deferred.reject(data.error);

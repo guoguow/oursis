@@ -5,7 +5,7 @@ var app = angular.module('myApp.controllers');
 /**
  * Login controller
  */
-app.controller('LoginCtrl', function ($scope, $window, us) {
+app.controller('LoginCtrl', function ($scope, $window,$cookies,user, us,type) {
 
   // submit form
   $scope.submit = function() {
@@ -14,8 +14,18 @@ app.controller('LoginCtrl', function ($scope, $window, us) {
       us.login($scope.login, $scope.password)
         .then(function(data) {
           console.log(data);
-          $window.location = '/';
-              console.log(widouws.location);
+              $scope.user = user.get();
+          type.getsistype($scope.user,$scope).then(
+              function(data){
+                  console.log("test"+data);
+
+                $window.location = '/';
+              },function(error){
+                  $window.location = '/';
+                  $scope.error = error;
+              }
+          );
+
 
         }, function(error) {
           $scope.error = error;

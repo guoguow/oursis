@@ -15,10 +15,10 @@ function  User(user) {
 mysql = client.getDbCon("sis");
 module.exports = User;
 
-//获取用户
-User.get =  function  get(a,tablename,condition,callback) {
 
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'"+"limit 1";
+User.gettype =  function  get(a,tablename,condition,tablename2,ssn,callback) {
+
+    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"' and exists (select aac001 from "+tablename2+" where aac001='"+ssn+"')";
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){
@@ -27,21 +27,6 @@ User.get =  function  get(a,tablename,condition,callback) {
             console.log(results);
             console.log(callback);
             return  callback(err,results[0],fields);
-        }
-    });
-
-};
-User.gettype =  function  get(a,tablename,condition,callback) {
-
-    var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'";
-    console.log(sql);
-    mysql.query(sql,function(err,results,fields){
-        if(err){
-            throw err;
-        }else{
-            console.log(results);
-            console.log(callback);
-            return  callback(err,results,fields);
         }
     });
 

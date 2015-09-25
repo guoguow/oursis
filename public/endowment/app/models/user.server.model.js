@@ -57,7 +57,7 @@ Pay.getindex=  function  get(a,b,tablename1,condition,callback) {
         }else{
             console.log(results);
             console.log(callback);
-            return  callback(err,results,fields);
+            return  callback(err,results[0],fields);
         }
     });
 };

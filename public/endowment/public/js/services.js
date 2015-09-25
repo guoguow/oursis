@@ -51,6 +51,7 @@ services.factory('endow', function($http, $cookies,$q){
 
             $http.post('/endowindex',{ssn:user.ssn}).success(function(data) {
                 console.log('front sucess to get endowment data ');
+                console.log(data);
                  $scope.idx=data;
             }).error(function() {
                 // deferred.reject(data.error);
