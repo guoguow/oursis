@@ -18,8 +18,7 @@ app.controller('LoginCtrl', function ($scope, $window,$cookies,user, us,type) {
           type.getsistype($scope.user,$scope).then(
               function(data){
                   console.log("test"+data);
-
-                $window.location = '/';
+               $window.location = '/';
               },function(error){
                   $window.location = '/';
                   $scope.error = error;

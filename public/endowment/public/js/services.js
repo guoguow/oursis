@@ -70,18 +70,9 @@ services.factory('endow', function($http, $cookies,$q){
                 console.log('error happened when set endowment orsign=0');
             });
         },
-        getindex: function(user,$scope) {
-
-            console.log('before to get endowment index data');
-
-            $http.post('/endowindex',{ssn:user.ssn}).success(function(data) {
-                console.log('front sucess to get endowment data ');
-                console.log(data);
-                 $scope.idx=data;
-            }).error(function() {
-                // deferred.reject(data.error);
-                console.log('error happened when get endowment data');
-            });
+        getindex: function() {
+console.log(angular.fromJson($cookies.idx1));
+            return angular.fromJson($cookies.idx1);
         }
     };
 });

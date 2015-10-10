@@ -116,7 +116,7 @@ exports.getprofile=function(req,res,next) {
     var ssn = req.query.ssn;
     var a="aac001 ssn,AAC003 name,AAC002 idcard,AAC004 sex,AAE005 mobilephone,BAC005 address ";
     var condition={name:"aac001",value:ssn};
-    var tablename="bi3.ac01";
+    var tablename="ac01";
     User.get(a,tablename,condition, function (err, data) {
 
         if (err) {
@@ -181,7 +181,7 @@ var check=function(lname,ssn,sname,idcard,callback){
         ;
         var a="aac001 ssn";
         var condition={name:"aac001",value:ssn};
-        var tablename="bi3.ac01";
+        var tablename="ac01";
         User.get(a, tablename, condition, function (err, user,fields) {
 
             if (err) {
@@ -194,7 +194,7 @@ var check=function(lname,ssn,sname,idcard,callback){
                 return  callback(err,message,fields);
             }
             var a="aac001 ssn";
-            var tablename="bi3.ac01";
+            var tablename="ac01";
             User.check(a, tablename, ssn,sname,idcard, function (err, user,fields) {
 
                 if (err) {

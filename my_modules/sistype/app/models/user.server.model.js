@@ -12,7 +12,6 @@ function  User(user) {
     this.mobilephone=user.mobilephone;
 }
 
-mysql = client.getDbCon("sis");
 module.exports = User;
 
 
@@ -20,7 +19,7 @@ User.gettype =  function  get(a,tablename,condition,tablename2,ssn,callback) {
 
     var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"' and exists (select aac001 from "+tablename2+" where aac001='"+ssn+"')";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
