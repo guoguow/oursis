@@ -10,9 +10,7 @@ var app = angular.module('myApp.controllers');
 app.controller('EIndexCtrl', function ($scope, $window,endow) {
 
     console.log("get index page data of  endowment");
-    $scope.idx1= endow.getindex();
-    console.log("idx11111111111111"+$scope.idx1)
-
+    endow.getindex($scope.user,$scope);
 });
 
 app.controller('EndowmentCtrl', function ($scope, $window,endow) {

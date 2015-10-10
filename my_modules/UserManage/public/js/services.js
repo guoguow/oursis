@@ -50,11 +50,6 @@ services.factory('us', function($http, $cookies, $q){
                   delete $cookies.st3;
                   delete $cookies.st4;
                   delete $cookies.st5;
-                  delete $cookies.idx1;
-                  delete $cookies.idx2;
-                  delete $cookies.idx3;
-                  delete $cookies.idx4;
-                  delete $cookies.idx5;
 
                   deferred.resolve();
               }).error(function(data) {

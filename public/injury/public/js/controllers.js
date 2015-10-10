@@ -16,6 +16,5 @@ app.controller('InjuryCtrl', function ($scope, $window,injury) {
 app.controller('IIndexCtrl', function ($scope, $window,injury) {
 
     console.log("get index page data of  injury");
-    $scope.idx4= injury.getindex();
-console.log("idx4++++++++++++"+$scope.idx4)
+    injury.getindex($scope.user,$scope);
 });

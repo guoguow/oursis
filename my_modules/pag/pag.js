@@ -15,6 +15,7 @@ function  Pag(user) {
     this.mobilephone=user.mobilephone;
 }
 
+mysql = client.getDbCon("sis");
 module.exports = Pag;
 
 
@@ -22,7 +23,7 @@ Pag.get =  function  get(a,tablename,condition,condition2,start,end,callback) {
 
     var sql = "select "+a+" from " +tablename+" where "+condition+condition2+" limit "+start+","+end;
     console.log(sql);
-    client.getDbCon(sql,function(err,results,fields){
+    mysql.query(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -37,7 +38,7 @@ Pag.getCount =  function  getCount(tablename,condition,condition2,callback) {
 
     var sql = "select count(*) count from " +tablename+" where "+condition+condition2;
     console.log(sql);
-    client.getDbCon(sql,function(err,results,fields){
+    mysql.query(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{

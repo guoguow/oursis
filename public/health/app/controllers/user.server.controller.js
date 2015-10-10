@@ -31,7 +31,7 @@ exports.getPayment=function(req,res,next){
         console.log(req.body.dt1+"++++++++++"+req.body.dt2);
         condition2 = " and  AKC173>'" +req.body.dt1+"' and akc194< '"+req.body.dt2+"' ";
     };
-    var tablename="kc01";
+    var tablename="md3.kc01";
     var start=req.body.page*req.body.pageSize;
     var end=req.body.pageSize;
     Pag.get(a,tablename,condition,condition2,start,end,function (err, data) {
@@ -56,7 +56,7 @@ exports.getAll=function(req,res,next){
         console.log(req.body.dt1+"++++++++++"+req.body.dt2);
         condition2 = " and  AKC173>'" +req.body.dt1+"' and akc194< '"+req.body.dt2+"' ";
     };
-    var tablename="kc01";
+    var tablename="md3.kc01";
     Pag.getCount(tablename,condition,condition2, function (err, data) {
         if (!data) {
             message = 'no data.'

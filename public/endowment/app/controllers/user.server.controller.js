@@ -125,7 +125,7 @@ exports.endowpaid=function(req,res,next){
     var a="aaa036,aae019,bie011,aae010,aaf034,aae002,aae011,aae036";
     var condition1={name:"aac001",value:da};
     var condition2={name:"aae002",value1:startdate,value2:enddate};
-    var tablename="ic17";
+    var tablename="ad3.ic17";
 
     var msg=decide(startdate,a,da,condition1,condition2,tablename,function(err,data){
         console.log(data);
@@ -150,7 +150,7 @@ exports.endowindex=function(req,res,next){
     var b="bab061"
    // var c="aae019"
     var condition={name:"aac001",value:da};
-    var tablename1="ac60";
+    var tablename1="si3.ac60";
   //  var tablename2="ad3.ic17";
 
     Pay.getindex(a,b,tablename1,condition, function(err, data) {
@@ -167,5 +167,54 @@ exports.endowindex=function(req,res,next){
         return res.json(data);
     });
 };
+/*
+//enodowment payhist creat by gugouow 0910
+ exports.endowpay=function(req,res,next){
+ console.log('goto get endowment detail  payhist data');
+ console.log(req.body);
+ var startdate=req.body.dt1;
+ var enddate=req.body.dt2;
+ var da=req.body.ssn;
+ var a="aae034,aae041,aae042,aae191,aae180,aaa042,aaa041,bab054,bab055,bab041,bab061,aae013";
+ var condition1={name:"aac001",value:da};
+ var condition2={name:"aae034",value1:startdate,value2:enddate};
+ var tablename="si3.ac60";
 
+    if(!startdate)
+    {
+        Pay.getpay(a,tablename,condition1, function(err, data) {
+            console.log('enter callback');
+            console.log(data);
+            if (err) {
+                console.log('something wrong');
+                return next(err);
+            }
+            if (!data) {
+                console.log('sistype not exists');
+                message='failed to get endowment detail data'
+                return res.json(404,{error:message});
+            };
+            console.log('sucess to get theendowment detail payhist detail data');
+            return res.json(data);
+        });
+    }else{
+        Pay.getbydate(a,tablename,condition1,condition2, function(err, data) {
+            console.log('enter callback');
+            console.log(data);
+            if (err) {
+                console.log('something wrong');
+                return next(err);
+            }
+            if (!data) {
+                console.log('sistype not exists');
+                message='failed to get endowment detail data'
+                return res.json(404,{error:message});
+            };
+            console.log('sucess to get theendowment detail payhist detail data');
+            return res.json(data);
+        });
+    }
+
+};
+*/
 
