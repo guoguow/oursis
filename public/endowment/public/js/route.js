@@ -16,8 +16,9 @@ config(function ($routeProvider, $locationProvider) {
           templateUrl: 'public/endowment/endowpaid.html',
           controller: 'EndowPaidCtrl'
       }).
-        otherwise({
-          redirectTo: '/'
+      when('/acount', {
+          templateUrl: 'public/endowment/endowaccount.html',
+          controller: 'acountCtrl'
       });
   $locationProvider.html5Mode(true);
 });

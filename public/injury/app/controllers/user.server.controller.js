@@ -30,12 +30,11 @@ exports.injuryindex=function(req,res,next){
     var a="aae034";
     var b="bab061"
     var c="alc072"
-    var d="aae002"
     var condition={name:"aac001",value:da};
     var tablename1="si3.ac63";
     var tablename2="hm3.lC33";
 
-    Pay.getindex(a,b,c,d,tablename1,tablename2,condition, function(err, data) {
+    Pay.getindex(a,b,c,tablename1,tablename2,condition, function(err, data) {
         if (err) {
             console.log('something wrong');
             return next(err);

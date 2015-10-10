@@ -11,9 +11,6 @@ config(function ($routeProvider, $locationProvider) {
       when('/healthpm', {
           templateUrl: 'public/health/healthpm.html',
           controller: 'HealthPmCtrl'
-      }).
-        otherwise({
-          redirectTo: '/'
       });
   $locationProvider.html5Mode(true);
 });

@@ -7,10 +7,6 @@ config(function ($routeProvider, $locationProvider) {
       when('/injury', {
           templateUrl: 'public/injury/injury.html',
           controller: 'InjuryCtrl'
-      }).
-
-        otherwise({
-          redirectTo: '/'
       });
   $locationProvider.html5Mode(true);
 });

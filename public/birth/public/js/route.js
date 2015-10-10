@@ -7,10 +7,6 @@ config(function ($routeProvider, $locationProvider) {
       when('/birth', {
           templateUrl: 'public/birth/birth.html',
           controller: 'BirthCtrl'
-      }).
-
-        otherwise({
-          redirectTo: '/'
       });
   $locationProvider.html5Mode(true);
 });

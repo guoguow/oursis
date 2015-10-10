@@ -56,12 +56,14 @@ Pay.setsign =  function  update(statsign,tablename,condition,callback) {
     });
 
 };
-Pay.getindex=  function  get(a,b,c,d,tablename1,tablename2,condition,callback) {
+Pay.getindex=  function  get(a,b,c,tablename1,tablename2,condition,callback) {
     //select max(a.AAE034),sum(a.BAB061),je
     //from si3.ac60 a,(select sum(AAE019) je,aac001 from ad3.ic17 where aac001='00010070110000053695') b
-    //where a.aac001=b.aac001
+    //select a.aae034 dm ,sum(a.bab061) pm,je from si3.ac63 a , (SELECT sum(b.alc072) je  from hm3.lC33  b  where aac001 ='00010072110000057117' ) b  where a.aac001 = '00010072110000057117 ' order by a.aae034  desc limit 1
 
-    var sql = "select max(a."+a+" ) dm,sum(a."+b+") pm,je,rm  from " +tablename1+" a,(select max(b."+d+" )  rm, sum("+c+") je  from "+tablename2+ " b  where "+condition.name+" ='"+condition.value+"' ) b where a."+condition.name+" = '"+condition.value +" '";
+
+    var sql = "select a."+a+"  dm,sum(a."+b+") pm,je  from " +tablename1+" a,(select  sum(b."+c+") je  from "+tablename2+ " b  where" +
+        " "+condition.name+" ='"+condition.value+"' ) b where a."+condition.name+" = '"+condition.value +" 'order by a."+a+" desc limit 1";
     console.log(sql);
     mysql.query(sql,function(err,results,fields){
         if(err){

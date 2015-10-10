@@ -4,7 +4,6 @@ var  client = require('../../../../my_modules/MDaccess/database.js'),
 function  Pay(userstat){
      this.username=userstat.username;
      this.statsign=userstat.statsign;
-
 }
 
 mysql = client.getDbCon("sis");

@@ -9,7 +9,7 @@ config(function ($routeProvider, $locationProvider) {
           controller: 'ListCtrl'
       }).
     otherwise({
-      redirectTo: '/'
+      redirectTo: '/error'
     });
 
   $locationProvider.html5Mode(true);

@@ -22,24 +22,19 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><img border="0" src="public/images/left.png">社保信息 <b class="caret"></b></a>
                         <ul class="dropdown-menu menu-top">
-                            <table  >
+                            <table  ng-repeat="ss in st1">
                             <tr >
-                                 <td>{{st1.sign}} </a></td>
-                                  <td><a href="/endowment">{{st1.kind}}</a></td></tr>
+                                  <td><a href="/endowment">{{ss.value1}}</a></td></tr>
                                 <tr >
-                                    <td><a href="#">{{st2.sign}} </a></td>
-                                    <td><a href="/health">{{st2.kind}}</a></td> </tr>
+                                    <td><a href="/health">{{ss.value3}}</a></td> </tr>
                                 <tr >
-                                    <td><a href="#">{{st3.sign}} </a></td>
-                                    <td><a href="/birth">{{st3.kind}}</a></td>
-                                                      </tr>
+                                    <td><a href="/birth">{{ss.value5}}</a></td>
+                                 </tr>
                                 <tr >
-                                    <td><a href="#">{{st4.sign}} </a></td>
-                                    <td><a href="/injury">{{st4.kind}}</a></td>
+                                    <td><a href="/injury">{{ss.value4}}</a></td>
                                 </tr>
                                 <tr >
-                                <td><a href="#">{{st5.sign}} </a></td>
-                                <td><a href="/unemployment">{{st5.kind}}</a></td>
+                                <td><a href="/unemployment">{{ss.value2}}</a></td>
                             </tr>
 
 

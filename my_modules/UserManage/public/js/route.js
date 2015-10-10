@@ -19,7 +19,7 @@ config(function ($routeProvider, $locationProvider) {
       }).
 
       otherwise({
-      redirectTo: '/'
+      redirectTo: '/error'
     });
 
   $locationProvider.html5Mode(true);

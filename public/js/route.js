@@ -12,9 +12,11 @@ config(function ($routeProvider, $locationProvider) {
     when('/', {
       templateUrl: 'public/views/index.html'
     }).
-
+      when('/error', {
+          templateUrl: 'public/views/error.html'
+      }).
     otherwise({
-      redirectTo: '/'
+      redirectTo: '/error'
     });
 
   $locationProvider.html5Mode(true);

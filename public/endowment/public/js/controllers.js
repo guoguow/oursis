@@ -65,5 +65,43 @@ app.controller('EndowPaidCtrl', function ($scope, $window,endow) {
 
 });
 
+app.controller('acountCtrl', function ($scope, $window,user,endow,pag) {
+
+
+    console.log('before get decide which payhist type');
+
+    $scope.user = user.get();
+
+    $scope.listNames = [
+        {id:'01', name:'收入'},
+        {id:'02', name:'支出'}
+    ];
+
+    $('#mytab').tab('show');
+   // $scope.id='01';
+    //$scope.list=[{value:'划入日期'},{value:'划入金额'},{value:'账户余额'}];
+    $scope.isTab = function(id){
+        if (id==02) {
+           console.log('get the out data');
+            $scope.list=[{value:'消费日期'},{value:'消费金额'},{value:'消费金额'},{value:'账户余额'}];
+        }
+        else{
+            console.log(' get in data');
+            $scope.list=[{value:'划入日期'},{value:'划入金额'},{value:'账户余额'}];
+        }
+    };
+
+    $scope.submit = function() {
+        // submit form
+        console.log('check start date < end date');
+        if ( $scope.dt1>$scope.dt2 ) {
+            console.log('start date > end date');
+            $scope.error = "开始时间大于结束时间，请检查! ";
+        }
+        else {
+            console.log(' start date <end date');
+        }
+    }
+});
 
 

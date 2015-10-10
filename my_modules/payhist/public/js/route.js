@@ -18,7 +18,7 @@ config(function ($routeProvider, $locationProvider) {
           controller: 'HealthCtrl'
       }).
         otherwise({
-          redirectTo: '/'
+          redirectTo: '/error'
       });
   $locationProvider.html5Mode(true);
 });
