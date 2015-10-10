@@ -12,7 +12,6 @@ function  User(user) {
     this.mobilephone=user.mobilephone;
 }
 
-mysql = client.getDbCon("sis");
 module.exports = User;
 //新增用户
 User.prototype.save = function  save(callback) {
@@ -35,9 +34,9 @@ User.prototype.save = function  save(callback) {
     };
     //uuid = uid.v4();
     //插入数据库
-    var sql ="insert into user (firstname,lastname,email,username,password) values(?,?,?,?,?)";
+    var sql ="insert into user (firstname,lastname,email,username,password) values("+user.firstname+","+user.lastname+","+user.email+","+user.username+","+user.password+")";
 
-    mysql.query(sql,[user.firstname,user.lastname,user.email,user.username,user.password],function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if (err) {
             throw err;
         } else {
@@ -53,7 +52,7 @@ User.get =  function  get(a,tablename,condition,callback) {
 
     var sql = "select "+a+" from " +tablename+" where "+condition.name+" ='"+condition.value+"'";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -68,7 +67,7 @@ User.check =  function  check(a,tablename,ssn,sname,idcard,callback) {
 
     var sql = "select "+a+" from " +tablename+" where aac001='"+ssn+"' and aac003='"+sname+"' and aac002='"+idcard+"'";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -94,9 +93,9 @@ User.prototype.update =  function  update(callback) {
 
 
     };
-    var sql = "update user set ssn=? where username=?";
+    var sql = "update user set ssn="+user.ssn+" where username="+user.username;
     console.log(sql);
-    mysql.query(sql,[user.ssn,user.username],function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -117,9 +116,9 @@ User.prototype.update2 =  function  update(callback) {
         address:this.address
 
     };
-    var sql = "update bi3.ac01 set aac001=?,AAC003=?,AAC002=?,AAE005=?,AAC004=?,BAC005=? where aac001=?";
+    var sql = "update bi3.ac01 set aac001="+user.ssn+",AAC003="+user.name+",AAC002="+user.idcard+",AAE005="+user.mobilephone+",AAC004="+user.sex+",BAC005="+user.address+" where aac001="+user.ssn;
     console.log(sql);
-    mysql.query(sql,[user.ssn,user.name,user.idcard,user.mobilephone,user.sex,user.address,user.ssn],function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
