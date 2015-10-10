@@ -18,6 +18,14 @@ services.factory('type', function($http, $cookies, $q){
 
           }).error(function(data1) {
           });
+
+              $http.post('/endowindex',{ssn:user.ssn}).success(function(data) {
+                  console.log('front sucess to get endow data ');
+                  $cookies.idx1 =angular.toJson(data);
+                  console.log($cookies.idx1)
+              }).error(function() {
+                  console.log('error happened when get endowindex data');
+              });
           $http.post('/getsistype2',{username:user.username.username,ssn:user.ssn}).success(function(data2) {
               console.log('return get sistyoe data2');
               console.log(data2);
@@ -26,6 +34,14 @@ services.factory('type', function($http, $cookies, $q){
 
           }).error(function(data2) {
           });
+
+              $http.post('/injuryindex',{ssn:user.ssn}).success(function(data) {
+                  console.log('front sucess to get injury data ');
+                  $cookies.idx2 =angular.toJson(data);
+                  console.log($cookies.idx2)
+              }).error(function() {
+                  console.log('error happened when get injury data');
+              });
           $http.post('/getsistype3',{username:user.username.username,ssn:user.ssn}).success(function(data3) {
               console.log('return get sistyoe data3');console.log(data3);
               $cookies.st3 = angular.toJson(data3);
@@ -33,12 +49,28 @@ services.factory('type', function($http, $cookies, $q){
 
           }).error(function(data3) {
           });
+
+              $http.post('/injuryindex',{ssn:user.ssn}).success(function(data) {
+                  console.log('front sucess to get injury data ');
+                  $cookies.idx3 =angular.toJson(data);
+                  console.log($cookies.idx3)
+              }).error(function() {
+                  console.log('error happened when get injury data');
+              });
           $http.post('/getsistype4',{username:user.username.username,ssn:user.ssn}).success(function(data4) {
               console.log('return get sistyoe data4');
               $cookies.st4 =angular.toJson(data4);
               console.log($cookies.st4);
 
           }).error(function(data4) {
+          });
+
+          $http.post('/injuryindex',{ssn:user.ssn}).success(function(data) {
+              console.log('front sucess to get injury data ');
+              $cookies.idx4 =angular.toJson(data);
+              console.log($cookies.idx4)
+          }).error(function() {
+              console.log('error happened when get injury data');
           });
           $http.post('/getsistype5',{username:user.username.username,ssn:user.ssn}).success(function(data5) {
               console.log('return get sistyoe data5');console.log(data5);
@@ -48,8 +80,18 @@ services.factory('type', function($http, $cookies, $q){
 
           }).error(function(data5) {
               deferred.reject(data5.error);
+
           });
 
+              $http.post('/injuryindex',{ssn:user.ssn}).success(function(data) {
+                  console.log('front sucess to get injury data ');
+                  $cookies.idx5 =angular.toJson(data);
+                  console.log($cookies.idx5)
+
+              }).error(function(data) {
+
+                  console.log('error happened when get injury data');
+              });
           return deferred.promise;
 
 

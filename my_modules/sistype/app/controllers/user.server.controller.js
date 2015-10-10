@@ -9,7 +9,7 @@ var User = require('../../app/models/user.server.model'),
 
 //change to real database guoguow0908
      var ssn = req.body.ssn;
-     var tablename2="si3.ac60";
+     var tablename2="ac60";
  var a="sign,kind,link,link1,link2";
  var condition={name:"sign",value:1};
  var tablename="sistype";
@@ -31,7 +31,7 @@ exports.getsistype2=function(req,res,next) {
 //change to real database guoguow0908
     var ssn = req.body.ssn;
 
-    var tablename2="si3.ac61";
+    var tablename2="ac61";
 
         var a="sign,kind";
         var condition={name:"sign",value:2};
@@ -54,7 +54,7 @@ exports.getsistype3=function(req,res,next) {
 //change to real database guoguow0908
     var ssn = req.body.ssn;
 
-    var tablename2="si3.ac62";
+    var tablename2="ac62";
         var a="sign,kind";
         var condition={name:"sign",value:3};
         var tablename="sistype";
@@ -77,7 +77,7 @@ exports.getsistype4=function(req,res,next) {
 //change to real database guoguow0908
     var ssn = req.body.ssn;
 
-    var tablename2="si3.ac63";
+    var tablename2="ac63";
 
         var a="sign,kind,link,link1,link2";
         var condition={name:"sign",value:4};
@@ -100,7 +100,7 @@ exports.getsistype5=function(req,res,next) {
 //change to real database guoguow0908
     var ssn = req.body.ssn;
 
-    var tablename2="si3.ac64";
+    var tablename2="ac64";
 
         var a="sign,kind";
         var condition={name:"sign",value:5};

@@ -32,8 +32,8 @@ exports.injuryindex=function(req,res,next){
     var c="alc072"
     var d="aae002"
     var condition={name:"aac001",value:da};
-    var tablename1="si3.ac63";
-    var tablename2="hm3.lC33";
+    var tablename1="ac63";
+    var tablename2="lC33";
 
     Pay.getindex(a,b,c,d,tablename1,tablename2,condition, function(err, data) {
         if (err) {
@@ -45,7 +45,7 @@ exports.injuryindex=function(req,res,next){
             message='failed get index data'
             return res.json(404,{error:message});
         };
-        console.log('sucess to get the endowment index detail data');
+        console.log('sucess to get the injury index detail data');
         return res.json(data);
     });
 };

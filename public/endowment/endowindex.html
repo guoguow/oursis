@@ -5,23 +5,13 @@
         <div ng-controller="TypeCtrl">
 
             <table  >
-                <tr ng-repeat="si in st1">
+                <tr ng-controller="EIndexCtrl">
+                    <td>&emsp;</td>
+                    <td><a href="/endowment">{{st1.kind}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                     <td><a href="/endowment">{{idx1.dm}} </a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/endowment">{{idx1.pm}} </a></td><td>&emsp;&emsp;&emsp; </td>
 
-                    <td><a href="/endowment">{{si.kind}}</a><td>&emsp;&emsp; </td>
-                    <td><a href="#">{{si.link}} </a></td><td>&emsp;&emsp; </td>
-                    <td><a href="#">{{si.link1}} </a></td><td>&emsp;&emsp; </td>
-                    <td><a href="#">{{si.link2}} </a></td> </tr>
-            </table>
-        </div>
-        <div ng-controller="EIndexCtrl">
-
-            <table  >
-                <tr ng-repeat="ssi in idx">
-                    <td>&emsp;&emsp;&emsp;&emsp; </td>
-                    <td>{{ssi.dm}} </a></td><td>&emsp;&emsp;&emsp; </td>
-                    <td>{{ssi.pm}} </a></td><td>&emsp;&emsp;&emsp; </td>
-                    <td>{{ssi.je}} </a></td><td>&emsp;&emsp; </td>
-
+                </tr>
             </table>
         </div>
 

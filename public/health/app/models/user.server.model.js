@@ -6,8 +6,10 @@ function  Pay(userstat){
      this.statsign=userstat.statsign;
 
 }
-
-mysql = client.getDbCon("sis");
+var timestamp = new Date().getMilliseconds();
+console.log(timestamp);
+var timestamp1 = new Date().getMilliseconds();
+console.log(timestamp1);
 module.exports = Pay;
 
 //获取
@@ -15,7 +17,7 @@ Pay.getpay=  function  get(a,tablename,condition1,callback) {
 
     var sql = "select "+a+" from " +tablename+" where "+condition1.name+" ='"+condition1.value+"'";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -31,7 +33,7 @@ Pay.getbydate=  function  get(a,tablename,condition1,condition2,callback) {
 
     var sql = "select "+a+" from " +tablename+" where "+condition1.name+" ='"+condition1.value+"'"+" and " +condition2.name+" > '"+condition2.value1+"'"+" and "+condition2.name+" <'"+condition2.value2+"'";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
@@ -46,7 +48,7 @@ Pay.setsign =  function  update(statsign,tablename,condition,callback) {
 
     var sql = "update " +tablename +" set statsign= "+statsign+" where  "+condition.name+" ='"+condition.value+"'";
     console.log(sql);
-    mysql.query(sql,function(err,results,fields){
+    client.getDbCon(sql,function(err,results,fields){
         if(err){
             throw err;
         }else{
