@@ -113,6 +113,27 @@ exports.endowpay=function(req,res,next){
         }
     });
 };
+exports.jmendowpay=function(req,res,next){
+    console.log('goto get endowment detail  payhist data');
+    console.log(req.body);
+    var startdate=req.body.dt1;
+    var enddate=req.body.dt2;
+    var da=req.body.ssn;
+    var a="aae034,aae041,aae042, bab052,bab051,aae013";
+    var condition1={name:"aac001",value:da};
+    var condition2={name:"aae034",value1:startdate,value2:enddate};
+    var tablename="si3.ac65";
+
+    var msg=decide(startdate,a,da,condition1,condition2,tablename,function(err,data){
+        console.log(data);
+        if (!data) {
+            console.log('something wrong cannot get data ++++++++++++++++');
+            return next(err);
+        } else {
+            return res.json(data);
+        }
+    });
+};
 //enodowment paid function guoguow
 //not finished ,still need decide data?????not konwn yet !!!!!!!!!!!!!!!!!!!!!!!
 

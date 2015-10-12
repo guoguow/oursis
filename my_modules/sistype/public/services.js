@@ -34,13 +34,17 @@ services.factory('type', function($http, $cookies, $q){
                     for(var key in data[i]){
                         //alert("key："+key+",value："+data[i][key]);
                         switch (data[i][key]){
-                            case "101":var o1 ={sign:"101",value1:'职工养老'};break;
-                            case "102":var o1 ={sign:"102",value1:'居民养老'};break;
-                            case "201":var o2 ={sign:"201",value2:'职工失业'};break;
-                            case "301": var o3 = {sign:"301",value3:'职工医疗'};break;
-                            case "305":var o3={sign:"305",value3:'居民医疗'};break;
-                            case "401": var o4 = {sign:"401",value4:'职工工伤'};break;
-                            case "501":  var o5 = {sign:"501",value5:'职工生育'};break;
+                            case "101":
+                            case "102": var o1 ={sign:"1",value1:'职工养老'};break;
+                            case "110":var o1 ={sign:"11",value1:'居民养老'};break;
+                            case "201":var o2 ={sign:"5",value2:'职工失业'};break;
+                            case "301":
+                            case "302":
+                            case "303": var o3 = {sign:"2",value3:'职工医疗'};break;
+                            case "305":
+                            case "306":  var o3={sign:"22",value3:'居民医疗'};break;
+                            case "401": var o4 = {sign:"4",value4:'职工工伤'};break;
+                            case "501":  var o5 = {sign:"3",value5:'职工生育'};break;
                         }
                     }
                 }

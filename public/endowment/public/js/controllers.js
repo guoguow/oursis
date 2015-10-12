@@ -8,9 +8,11 @@ var app = angular.module('myApp.controllers');
  */
 
 app.controller('EIndexCtrl', function ($scope, $window,endow) {
-
     console.log("get index page data of  endowment");
-    endow.getindex($scope.user,$scope);
+    if($scope.st1.s1.sign==1|| $scope.st1.s1.sign==11){
+        console.log("养老参保标识 sign=", $scope.st1.s1.sign);
+        endow.getindex($scope.user,$scope);
+    }
 });
 
 app.controller('EndowmentCtrl', function ($scope, $window,endow) {
@@ -26,7 +28,12 @@ app.controller('EndowPayCtrl', function ($scope, $window,endow) {
     console.log('before get endowment detail payhist data');
 
     endow.payhist($scope.user,$scope);
-
+    if($scope.st1.s1.sign==1){
+        endow.payhist($scope.user,$scope);
+    }
+    else{
+        endow.jmpay($scope.user,$scope);
+    }
     $scope.submit = function() {
         // submit form
         console.log('check start date < end date');
@@ -37,7 +44,12 @@ app.controller('EndowPayCtrl', function ($scope, $window,endow) {
         else {
             console.log(' start date <end date');
         }
-        endow.payhist($scope.user,$scope, $scope.dt1,$scope.dt2);
+        if($scope.st1.s1.sign==1){
+            endow.payhist($scope.user,$scope, $scope.dt1,$scope.dt2);
+        }
+        else{
+            endow.jmpay($scope.user,$scope, $scope.dt1,$scope.dt2);
+        }
     }
 
 });

@@ -1,51 +1,5 @@
 
 var services = angular.module('myApp.services');
-/*
-services.factory('setpay', function($http, $cookies,$q){
-
-    return {
-
-  reset: function(user,$scope) {
-
-           console.log('clean  all the payforsign to null');
-
-            $http.post('/reset').success(function() {
-                console.log('return get data,sucess reset signforpay');
-          //      $scope.ph=data;
-
-            })
-                .error(function() {
-              //  deferred.reject(data.error);
-                console.log('error happened when reset front');
-            });
-        },
-        setpay1: function(user,$scope) {
-
-            console.log('before to set endowment signforpay=1');
-
-            $http.post('/setendow',{username:user.username}).success(function() {
-                console.log('front   sucess to set endowment signforpay=1 ');
-             //   $scope.ph=data;
-
-            }).error(function() {
-               // deferred.reject(data.error);
-                console.log('error happened when set endowment signforpay=1');
-            });
-        },
-        setpay2: function(user,$scope) {
-
-            console.log('before to set health signforpay=1');
-
-            $http.post('/sethealth',{username:user.username}).success(function() {
-                console.log('sucess to set  health signforpay=1 ');
-            }).error(function() {
-                console.log('error happened when set  health signforpay=1');
-            });
-        }
-    };
-});
-       */
-
 // share user information across controllers
 services.factory('pay', function($http, $cookies,$q){
 

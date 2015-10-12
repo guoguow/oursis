@@ -16,5 +16,9 @@ app.controller('InjuryCtrl', function ($scope, $window,injury) {
 app.controller('IIndexCtrl', function ($scope, $window,injury) {
 
     console.log("get index page data of  injury");
-    injury.getindex($scope.user,$scope);
+
+    if($scope.st1.s1.sign==4){
+        console.log("工伤参保标识 sign=", $scope.st1.s1.sign);
+        injury.getindex($scope.user,$scope);
+    }
 });
