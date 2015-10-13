@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+
+<html ng-app="myApp">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Endowment</title>
 </head>
-<body ng-controller="EndowmentCtrl">
+<body>
 <ol class="breadcrumb">
     <li><a href="#">home</a></li>
     <li class="active">养老</li>
@@ -15,13 +16,18 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
 
     <table  >
-        <br > </r>
+        <br >
         <tr >
             <td><a href="/acount">个人账户</a></td></tr>
         <tr >
-            <td><a href="/endowPay">缴费历史</a></td> </tr>
+            <td><a href="/endowPay">{{st1.s1.value1}}缴费历史</a></td> </tr>
         <tr >
-            <td><a href="/endowPaid">发放支付</a></td>
+            <td><a href="/endowPaid">{{st1.s1.value1}}发放支付</a></td>
+        </tr>
+        <tr >
+            <td><a href="/outpay">以往非{{st1.s1.value1}}缴费记录</a></td> </tr>
+        <tr >
+            <td><a href="/outpaid">以往非{{st1.s1.value1}}发放记录</a></td>
         </tr>
         <tr >
             <td><a href="/ezc">政策文件解读</a></td>

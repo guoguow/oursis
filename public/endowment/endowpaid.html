@@ -15,7 +15,7 @@
     <li class="active">发放支付明细</li>
 </ol>
 
-<p>{{user.username}}的养老发放支付历史明细</p>
+<p>{{user.username}}的{{st1.s1.value1}}养老发放支付历史明细</p>
 
 <div ng-controller="EndowPaidCtrl" >
 
@@ -56,8 +56,13 @@
             <td>{{saa.aae011}} </td><td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
             <td>{{saa.aae036}} </td><<td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
         </tr>
+       <tr ng-repeat="saa in jmepaid">
+           <td>{{saa.aaa036}} </td> <td>&emsp; </td>
+           <td>{{saa.aae019}} </td><td>&emsp; </td>
+           <td>{{saa.aae041}} </td><td>&emsp;&emsp; </td>
+           <td>{{saa.aae042}} </td><td>&emsp;&emsp;&emsp;&emsp;</td>
+       </tr>
     </table>
-
 
 </div>
 

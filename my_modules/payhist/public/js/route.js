@@ -8,15 +8,6 @@ config(function ($routeProvider, $locationProvider) {
           templateUrl: 'my_modules/payhist/public/payhist.html',
           controller: 'PayCtrl'
       }).
-
-      when('/endowment', {
-          templateUrl: 'public/views/endowment.html',
-          controller: 'EndowmentCtrl'
-      }).
-      when('/health', {
-          templateUrl: 'public/views/health.html',
-          controller: 'HealthCtrl'
-      }).
         otherwise({
           redirectTo: '/error'
       });

@@ -15,73 +15,178 @@ app.controller('EIndexCtrl', function ($scope, $window,endow) {
     }
 });
 
-app.controller('EndowmentCtrl', function ($scope, $window,endow) {
-
-    console.log("reset set payforsign  for endowment");
-    endow.setpay1($scope.user,$scope);
-});
-
 app.controller('EndowPayCtrl', function ($scope, $window,endow) {
-
-    endow.setpaysign($scope.user,$scope);
 
     console.log('before get endowment detail payhist data');
 
-    endow.payhist($scope.user,$scope);
-    if($scope.st1.s1.sign==1){
+      if($scope.st1.s1.sign==1){
+
+            $scope.statsign=0;
+            console.log($scope.statsign);
+          endow.payhist($scope.user,$scope);
+
+          $scope.submit = function() {
+              // submit form
+              console.log('check start date < end date');
+              if ($scope.dt1 > $scope.dt2) {
+                  console.log('start date > end date');
+                  $scope.error = "开始时间大于结束时间，请检查! ";
+              }
+              else {
+                  console.log(' start date <end date');
+              }
+              endow.payhist($scope.user, $scope, $scope.dt1, $scope.dt2);
+          }
+      }
+      else{
+
+          $scope.statsign=10;
+          console.log($scope.statsign);
+          endow.jmpay($scope.user,$scope);
+          $scope.submit = function() {
+              // submit form
+              console.log('check start date < end date');
+              if ($scope.dt1 > $scope.dt2) {
+                  console.log('start date > end date');
+                  $scope.error = "开始时间大于结束时间，请检查! ";
+              }
+              else {
+                  console.log(' start date <end date');
+              }
+              endow.jmpay($scope.user,$scope, $scope.dt1,$scope.dt2);
+          }
+
+      }
+});
+app.controller('outpayCtrl', function ($scope, $window,endow) {
+
+    console.log('before get endowment detail payhist data');
+
+    if($scope.st1.s1.sign==11){
+
+        $scope.statsign=0;
+        console.log($scope.statsign);
         endow.payhist($scope.user,$scope);
+
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
+            endow.payhist($scope.user, $scope, $scope.dt1, $scope.dt2);
+        }
     }
     else{
+        $scope.statsign=10;
+        console.log($scope.statsign);
         endow.jmpay($scope.user,$scope);
-    }
-    $scope.submit = function() {
-        // submit form
-        console.log('check start date < end date');
-        if ( $scope.dt1>$scope.dt2 ) {
-            console.log('start date > end date');
-            $scope.error = "开始时间大于结束时间，请检查! ";
-        }
-        else {
-            console.log(' start date <end date');
-        }
-        if($scope.st1.s1.sign==1){
-            endow.payhist($scope.user,$scope, $scope.dt1,$scope.dt2);
-        }
-        else{
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
             endow.jmpay($scope.user,$scope, $scope.dt1,$scope.dt2);
         }
-    }
 
+    }
 });
 
 app.controller('EndowPaidCtrl', function ($scope, $window,endow) {
 
-    endow.setpaidsign($scope.user,$scope);
-
     console.log('before get endowment paid detail data');
+    if($scope.st1.s1.sign==1){
 
-    endow.paid($scope.user,$scope);
+        $scope.statsign=5;
+        console.log($scope.statsign);
+        endow.paid($scope.user,$scope);
 
-    $scope.submit = function() {
-        // submit form
-        console.log('check start date < end date');
-        if ( $scope.dt1>$scope.dt2 ) {
-            console.log('start date > end date');
-            $scope.error = "开始时间大于结束时间，请检查! ";
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
+            endow.paid($scope.user,$scope, $scope.dt1,$scope.dt2);
         }
-        else {
-            console.log(' start date <end date');
-        }
-        endow.paid($scope.user,$scope, $scope.dt1,$scope.dt2);
     }
+    else{
 
+        $scope.statsign=11;
+        console.log($scope.statsign);
+        endow.jmpaid($scope.user,$scope);
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
+            endow.jmpaid($scope.user,$scope, $scope.dt1,$scope.dt2);
+        }
+    }
 });
 
+app.controller('outpaidCtrl', function ($scope, $window,endow) {
+
+    console.log('before get endowment paid detail data');
+    if($scope.st1.s1.sign==11){
+
+        $scope.statsign=5;
+        console.log($scope.statsign);
+        endow.paid($scope.user,$scope);
+
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
+            endow.paid($scope.user,$scope, $scope.dt1,$scope.dt2);
+        }
+    }
+    else{
+
+        $scope.statsign=11;
+        console.log($scope.statsign);
+        endow.jmpaid($scope.user,$scope);
+        $scope.submit = function() {
+            // submit form
+            console.log('check start date < end date');
+            if ($scope.dt1 > $scope.dt2) {
+                console.log('start date > end date');
+                $scope.error = "开始时间大于结束时间，请检查! ";
+            }
+            else {
+                console.log(' start date <end date');
+            }
+            endow.jmpaid($scope.user,$scope, $scope.dt1,$scope.dt2);
+        }
+    }
+});
 app.controller('acountCtrl', function ($scope, $window,user,endow,pag) {
 
-
     console.log('before get decide which payhist type');
-
     $scope.user = user.get();
 
     $scope.listNames = [

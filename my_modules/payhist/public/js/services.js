@@ -9,7 +9,7 @@ services.factory('pay', function($http, $cookies,$q){
 
           console.log('before get payhist data');
 
-          $http.post('/pay',{username:user.username}).success(function(data) {
+          $http.post('/pay',{username:user.username,statsign:$scope.statsign}).success(function(data) {
               console.log('return get payhist data for the page');
               console.log(data);
               $scope.ph=data;

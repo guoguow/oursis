@@ -9,26 +9,11 @@ exports.pay=function(req,res,next){
     console.log(req.body);
     console.log(req.body);
 
-        var a="statsign,orsign";
-        var condition={name:"username",value:req.body.username};
-        var tablename="userstat";
-    Pay.get(a,tablename,condition, function (err, stat) {
-            if (!stat) {
-                message = 'signstat not in payHist.'
-                return res.json(403, {error: message});
-            };
-            if (err) {
-                console.log('something wrong');
-                return next(err);
-            };
-            console.log(stat);
-
-            var a="sign,kind,wsign,value1,value2,value3,value4";
-            var condition1={name:"sign",value:stat.statsign};
-            var condition2={name:"wsign",value:stat.orsign};
+            var a="value1,value2,value3,value4";
+            var condition={name:"sign",value:req.body.statsign};
             var tablename="paydata";
 
-            Pay.getpay(a,tablename,condition1,condition2, function(err, data) {
+            Pay.get(a,tablename,condition, function(err, data) {
                 console.log('enter callback');
                 console.log(data);
                 if (err) {
@@ -44,7 +29,6 @@ exports.pay=function(req,res,next){
                 return res.json(data);
             });
             console.log('end of payhist choose');
-        })
 
 };
 /*

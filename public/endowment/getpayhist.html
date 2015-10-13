@@ -17,7 +17,7 @@
     <li class="active">缴费历史明细</li>
 </ol>
 
-<p>{{user.username}}的养老缴费历史明细</p>
+<p>{{user.username}}的{{st1.s1.value1}}养老缴费历史明细</p>
 <div ng-controller="EndowPayCtrl" >
 
     <form ng-submit="submit()">
@@ -60,8 +60,15 @@
                <td>{{sa.bab061}} </td><td>&emsp;&emsp;&emsp;&emsp; </td>
                <td>{{sa.aae013}} </td>
         </tr>
+        <tr ng-repeat="sa in jmepay">
+            <td>{{sa.aae034}} </td> <td>&emsp; </td>
+            <td>{{sa.aae041}} </td><td>&emsp; </td>
+            <td>{{sa.aae042}} </td><td>&emsp;&emsp; </td>
+            <td>{{sa.bab052}} </td><<td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
+            <td>{{sa.bab051}} </td><td>&emsp;&emsp;&emsp;&emsp; &emsp;</td>
+            <td>{{sa.aae013}} </td>
+        </tr>
     </table>
 </div>
-
 </body>
 </html>

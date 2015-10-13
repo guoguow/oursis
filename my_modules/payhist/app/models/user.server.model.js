@@ -20,7 +20,7 @@ Pay.get =  function  get(a,tablename,condition,callback) {
         }else{
             console.log(results);
             console.log(callback);
-            return  callback(err,results[0],fields);
+            return  callback(err,results,fields);
         }
     });
 
@@ -42,17 +42,3 @@ Pay.getpay=  function  get(a,tablename,condition1,condition2,callback) {
 
 };
 
-Pay.setsign =  function  update(statsign,tablename,condition,callback) {
-
-    var sql = "update " +tablename +" set statsign= "+statsign+" where  "+condition.name+" ='"+condition.value+"'";
-    console.log(sql);
-    client.getDbCon(sql,function(err,results,fields){
-        if(err){
-            throw err;
-        }else{
-            console.log(callback);
-            return  callback(err,fields);
-        }
-    });
-
-};
