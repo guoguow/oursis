@@ -4,7 +4,7 @@ angular.module('myApp', [
   'ngCookies',
   'myApp.controllers',
   'myApp.services'
- // 'filters'
+  //'filters'
 ]).
 
 config(function ($routeProvider, $locationProvider) {
@@ -15,9 +15,9 @@ config(function ($routeProvider, $locationProvider) {
       when('/error', {
           templateUrl: 'public/views/error.html'
       }).
-    otherwise({
-      redirectTo: '/error'
-    });
+      otherwise({
+          redirectTo: '/error'
+      });
 
   $locationProvider.html5Mode(true);
 });

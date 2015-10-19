@@ -5,7 +5,7 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider.
 
       when('/endowment', {
-          templateUrl: 'public/endowment/endowment.html',
+          templateUrl: 'public/endowment/endowment.html'
       }).
       when('/acount', {
           templateUrl: 'public/endowment/endowaccount.html',

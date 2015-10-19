@@ -15,9 +15,10 @@
   <body ng-controller="MainCtrl">
 
     <ng-include src="'public/views/includes/navbar.html'"></ng-include>
+
+<div ng-show="user">
     <ng-include src="'public/views/includes/abltree.html'"></ng-include>
-
-
+</div>
     <div class="container">
       <div ng-view></div>
     </div>
