@@ -1,0 +1,71 @@
+<!--* creat by guoguow 0909-->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pay paid of endowment</title>
+</head>
+
+<body>
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li><a href="/endowment">养老</a></li>
+    <li class="active">其他发放支付明细</li>
+</ol>
+
+<p>{{user.username}}的其他养老发放支付历史明细</p>
+
+<div ng-controller="outpaidCtrl" >
+
+    <form ng-submit="submit()">
+        <div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="input-group">
+                        start date：<input type="date" class="form-control"  id="dt1" datepicker-popup ng-model="dt1" is-open="status.opened"
+                                          datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"  />
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="input-group">
+                        end date： <input type="date" class="form-control"  id="dt2" datepicker-popup ng-model="dt2" is-open="status.opened"
+                                         datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <pre>Selected  date range  is: <em>{{dt1 | date:'fullDate' }}——{{dt2 | date:'fullDate' }}</em></pre>
+        <div class="alert alert-warning" ng-show="error">
+            {{error}}
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="筛选">
+    </form>
+    <ng-include src="'my_modules/payhist/public/payhist.html'"></ng-include>
+
+    <table>
+        <tr ng-repeat="saa in epaid">
+            <td>{{saa.aaa036}} </td> <td>&emsp; </td>
+            <td>{{saa.aae019}} </td><td>&emsp; </td>
+            <td>{{saa.bie011}} </td><td>&emsp;&emsp; </td>
+            <td>{{saa.aae010}} </td><td>&emsp;&emsp;&emsp;&emsp;</td>
+            <td>{{saa.aaf034}} </td><td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
+            <td>{{saa.aaae002}} </td><td>&emsp;&emsp;&emsp;&emsp; </td>
+            <td>{{saa.aae011}} </td><td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
+            <td>{{saa.aae036}} </td><<td>&emsp;&emsp;&emsp;&emsp;&emsp; </td>
+        </tr>
+        <tr ng-repeat="saa in jmepaid">
+            <td>{{saa.aaa036}} </td> <td>&emsp; </td>
+            <td>{{saa.aae019}} </td><td>&emsp; </td>
+            <td>{{saa.aae041}} </td><td>&emsp;&emsp; </td>
+            <td>{{saa.aae042}} </td><td>&emsp;&emsp;&emsp;&emsp;</td>
+        </tr>
+    </table>
+
+</div>
+
+</form>
+</body>
+</html>
