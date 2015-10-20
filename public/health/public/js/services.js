@@ -1,54 +1,92 @@
 
 var services = angular.module('myApp.services');
 
-
-
 services.factory('health', function($http, $cookies,$q){
 
     return {
-        setpay2: function(user,$scope) {
 
-            console.log('before to set health signforpay=2');
+        payhist: function(user,$scope,dt1,dt2) {
 
-            $http.post('/sethealth',{username:user.username}).success(function() {
-                console.log('sucess to set  health signforpay=2 ');
-            }).error(function() {
-                console.log('error happened when set  health signforpay=2');
-            });
-        }
-    };
-});
+            console.log('before get payhist data aaaaaaaaaaaaaaa');
 
-services.factory('healthpm', function($http, $cookies,$q) {
+            $http.post('/healthpay',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+                console.log('return get healthment detail  payhist data ');
+                console.log(data);
+                $scope.hpay=data;
 
-    return {
-
-        getPayment: function ($scope,jylb) {
-
-
-            $http.post('/healthpm', {ssn:$scope.user.ssn,jylb:jylb,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:$scope.dt1,dt2:$scope.dt2}).success(function (data) {
-                $scope.payments = data;
-
-            }).error(function (data) {
-                // deferred.reject(data.error);
-                deferred.reject(data.error);
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get healthment detail  payhist data for the page');
             });
         },
-        getAll: function ($scope,jylb) {
+        jmpay: function(user,$scope,dt1,dt2) {
 
+            console.log('before get payhist data');
 
-            $http.post('/healthpmCount', {ssn:$scope.user.ssn,jylb:jylb,dt1:$scope.dt1,dt2:$scope.dt2}).success(function (data) {
+            $http.post('/jmhealthpay',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+                console.log('return get healthment detail  payhist data ');
+                console.log(data);
+                $scope.jmhpay=data;
 
-                $scope.totalPage = Math.ceil(data.count/$scope.pageSize)-1;
-                $scope.endPage = $scope.totalPage;
-                console.log($scope.totalPage);
-            }).error(function (data) {
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get healthment detail  payhist data for the page');
+            });
+        },
+       paid01: function(user,$scope,dt1,dt2) {
+
+        console.log('before get paid data');
+
+        $http.post('/healthpaid01',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+                console.log('return get healthment detail  paid data ');
+                console.log(data);
+                $scope.hpaid = data;
+        }).error(function(data) {
+            //  deferred.reject(data.error);
+            console.log(' error happened when return get healthment detail  paid data for the page');
+        });
+    },
+        paid02: function(user,$scope,dt1,dt2) {
+
+            console.log('before get paid data22222222');
+
+            $http.post('/healthpaid02',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+                console.log('return get healthment detail  paid data ');
+                console.log(data);
+                $scope.hpaid = data;
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get healthment detail  paid data for the page');
+            });
+        },
+        paid03: function(user,$scope,dt1,dt2) {
+
+            console.log('before get paid data');
+
+            $http.post('/healthpaid03',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+                console.log('return get healthment detail  paid data ');
+                console.log(data);
+                $scope.hpaid = data;
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get healthment detail  paid data for the page');
+            });
+        },
+        getindex: function(user,$scope) {
+            console.log('before to get healthment index data');
+            $http.post('/healthindex',{ssn:user.ssn}).success(function(data) {
+                console.log('front sucess to get healthment data ');
+                console.log(data);
+                 $scope.idx=data;
+            }).error(function() {
                 // deferred.reject(data.error);
-                deferred.reject(data.error);
+                console.log('error happened when get healthment data');
             });
         }
     };
 });
+
+
 
 
 
