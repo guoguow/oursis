@@ -7,9 +7,7 @@ config(function ($routeProvider, $locationProvider) {
       when('/pay', {
           templateUrl: 'my_modules/payhist/public/payhist.html',
           controller: 'PayCtrl'
-      }).
-        otherwise({
-          redirectTo: '/error'
       });
+
   $locationProvider.html5Mode(true);
 });

@@ -13,14 +13,10 @@ config(function ($routeProvider, $locationProvider) {
       }). when('/signup', {
           templateUrl: 'my_modules/UserManage/public/signup.html',
           controller: 'SignupCtrl'
-      }).    when('/profile', {
+      }).
+      when('/profile', {
           templateUrl: 'my_modules/UserManage/public/profile.html',
           controller: 'ProfileCtrl'
-      }).
-
-      otherwise({
-      redirectTo: '/error'
-    });
-
+      });
   $locationProvider.html5Mode(true);
 });

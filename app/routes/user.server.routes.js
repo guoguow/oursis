@@ -5,7 +5,6 @@ module.exports=function(app){
     require('../../my_modules/pag/app/routes/route.js')(app);
 
     require('../../my_modules/UserManage/app/routes/user.server.routes.js')(app);
-    /* passport=require('passport');*/
     require('../../my_modules/list/app/routes/user.server.routes.js')(app);
     require('../../my_modules/sistype/app/routes/user.server.routes.js')(app);
     require('../../my_modules/payhist/app/routes/user.server.routes.js')(app);
