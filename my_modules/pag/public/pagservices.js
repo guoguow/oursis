@@ -6,9 +6,15 @@ services.factory('pag', function($http, $cookies, $q){
     return{
 
 
+        getAll: function ($scope,bz) {
 
+            $http.post('/getCount', {username:$scope.user.username,ssn:$scope.user.ssn,dt1:$scope.dt1,dt2:$scope.dt2,bz:bz}).success(function (data) {
+                $scope.totalPage = Math.ceil(data.count/$scope.pageSize);
+            }).error(function (data) {
+            });
+        },
         prev : function ($scope) {
-            if ($scope.currentPage > 0) {
+            if ($scope.currentPage > 1) {
                 $scope.currentPage--;
                 $scope.load($scope.currentPage,$scope);
             }
@@ -20,25 +26,25 @@ services.factory('pag', function($http, $cookies, $q){
             }
         },
         loadPage: function (page,$scope) {
-            $scope.currentPage = page - 1;
+            $scope.currentPage = page;
             $scope.load($scope.currentPage,$scope);
         },
         getPages:function ($scope) {
-            if ($scope.currentPage > 0 && $scope.currentPage < $scope.totalPage) {
+            if ($scope.currentPage > 1 && $scope.currentPage < $scope.totalPage) {
                 $scope.pages = [
-                    $scope.currentPage ,
-                        $scope.currentPage + 1,
-                        $scope.currentPage + 2
-                ];
-            } else if ($scope.currentPage == 0 && $scope.totalPage > 1) {
-                $scope.pages = [
-                        $scope.currentPage + 1,
-                        $scope.currentPage + 2
-                ];
-            } else if ($scope.currentPage == $scope.totalPage && $scope.totalPage > 1) {
-                $scope.pages = [
-                    $scope.currentPage ,
+                    $scope.currentPage-1 ,
+                        $scope.currentPage ,
                         $scope.currentPage + 1
+                ];
+            } else if ($scope.currentPage == 1 && $scope.totalPage > 2) {
+                $scope.pages = [
+                        $scope.currentPage ,
+                        $scope.currentPage + 1
+                ];
+            } else if ($scope.currentPage == $scope.totalPage && $scope.totalPage > 2) {
+                $scope.pages = [
+                    $scope.currentPage-1 ,
+                        $scope.currentPage
                 ];
             }
         }

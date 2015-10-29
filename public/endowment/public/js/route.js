@@ -5,11 +5,11 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider.
 
       when('/endowment', {
-          templateUrl: 'public/endowment/endowment.html',
+          templateUrl: 'public/endowment/endowment.html'
       }).
-      when('/acount', {
+      when('/endowAccount', {
           templateUrl: 'public/endowment/endowaccount.html',
-          controller: 'acountCtrl'
+          controller: 'EndowAccountCtrl'
       }).
       when('/endowPay', {
           templateUrl: 'public/endowment/getpayhist.html',
@@ -26,6 +26,9 @@ config(function ($routeProvider, $locationProvider) {
         when('/outpaid', {
             templateUrl: 'public/endowment/outofdatePaid.html',
             controller: 'outpaidCtrl'
-        });
+        }).
+      when('/endowdoc', {
+          templateUrl: 'public/endowment/endowdoc.html'
+      });
   $locationProvider.html5Mode(true);
 });

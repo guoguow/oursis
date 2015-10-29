@@ -9,7 +9,7 @@ services.factory('endow', function($http, $cookies,$q){
 
             console.log('before get payhist data aaaaaaaaaaaaaaa');
 
-            $http.post('/endowpay',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+            $http.post('/endowpay',{username:user.username,ssn:user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:dt1,dt2:dt2}).success(function(data) {
                 console.log('return get endowment detail  payhist data ');
                 console.log(data);
                 $scope.epay=data;
@@ -23,7 +23,7 @@ services.factory('endow', function($http, $cookies,$q){
 
             console.log('before get payhist data');
 
-            $http.post('/jmendowpay',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+            $http.post('/jmendowpay',{username:user.username,ssn:user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:dt1,dt2:dt2}).success(function(data) {
                 console.log('return get endowment detail  payhist data ');
                 console.log(data);
                 $scope.jmepay=data;
@@ -37,7 +37,7 @@ services.factory('endow', function($http, $cookies,$q){
 
         console.log('before get paid data');
 
-        $http.post('/endowpaid',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+        $http.post('/endowpaid',{username:user.username,ssn:user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:dt1,dt2:dt2}).success(function(data) {
                 console.log('return get endowment detail  paid data ');
                 console.log(data);
                 $scope.epaid = data;
@@ -50,7 +50,7 @@ services.factory('endow', function($http, $cookies,$q){
 
             console.log('before get paid data');
 
-            $http.post('/jmendowpaid',{username:user.username,ssn:user.ssn,dt1:dt1,dt2:dt2}).success(function(data) {
+            $http.post('/jmendowpaid',{username:user.username,ssn:user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:dt1,dt2:dt2}).success(function(data) {
                 console.log('return get endowment detail  paid data ');
                 console.log(data);
                 $scope.jmepaid = data;
@@ -59,15 +59,38 @@ services.factory('endow', function($http, $cookies,$q){
                 console.log(' error happened when return get endowment detail  paid data for the page');
             });
         },
-        getindex: function(user,$scope) {
-            console.log('before to get endowment index data');
-            $http.post('/endowindex',{ssn:user.ssn}).success(function(data) {
-                console.log('front sucess to get endowment data ');
+        getindex: function() {
+            return angular.fromJson($cookies.idx1);
+        },
+        getindex2: function() {
+            return angular.fromJson($cookies.idx11);
+        },
+        getIncome: function($scope) {
+
+            console.log('before get payhist data aaaaaaaaaaaaaaa');
+
+            $http.post('/endowincome',{username:$scope.user.username,ssn:$scope.user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:$scope.dt1,dt2:$scope.dt2}).success(function(data) {
+                console.log('return get endowment detail  payhist data ');
                 console.log(data);
-                 $scope.idx=data;
-            }).error(function() {
-                // deferred.reject(data.error);
-                console.log('error happened when get endowment data');
+                $scope.income=data;
+
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get endowment detail  payhist data for the page');
+            });
+        },
+        getExp: function($scope) {
+
+            console.log('before get payhist data aaaaaaaaaaaaaaa');
+
+            $http.post('/endowexp',{username:$scope.user.username,ssn:$scope.user.ssn,page:$scope.currentPage,pageSize:$scope.pageSize,dt1:$scope.dt1,dt2:$scope.dt2}).success(function(data) {
+                console.log('return get endowment detail  payhist data ');
+                console.log(data);
+                $scope.income=data;
+
+            }).error(function(data) {
+                //  deferred.reject(data.error);
+                console.log(' error happened when return get endowment detail  payhist data for the page');
             });
         }
     };

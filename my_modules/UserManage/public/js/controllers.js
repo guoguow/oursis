@@ -17,8 +17,7 @@ app.controller('LoginCtrl', function ($scope, $window,$cookies,user, us,type) {
               $scope.user = user.get();
           type.getsistype($scope.user,$scope).then(
               function(data){
-                  console.log("test"+data);
-               $window.location = '/';
+            $window.location = '/';
               },function(error){
                   $window.location = '/';
                   $scope.error = error;
@@ -43,7 +42,6 @@ app.controller('LogoutCtrl', function ($scope, $window, us) {
         us.logout().then(function() {
             $scope.user = null;
             $window.location = '/';
-            console.log(window.location);
 
         }, function(error) {
             console.log(error);
@@ -77,7 +75,6 @@ app.controller('ProfileCtrl', function ($scope, $window,user, us) {
     $scope.user = user.get();
 
     console.log('before get profile');
-    console.log($scope.user);
     us.getprofile($scope);
 
 
@@ -89,7 +86,6 @@ app.controller('ProfileCtrl', function ($scope, $window,user, us) {
                          $scope.success = '绑定成功，请重新登录';
                          $scope.user = null;
                          $window.location = '/';
-                         console.log(window.location);
 
                      }, function(error) {
                          console.log(error);
@@ -103,24 +99,7 @@ app.controller('ProfileCtrl', function ($scope, $window,user, us) {
              $scope.error1 = "社保号码、姓名、身份证号不能为空";
          }
      }
-/*
-    // submit form
-    $scope.submit = function () {
-        if ($scope.ssn && $scope.name && $scope.idcard&&$scope.address&&$scope.mobilephone&&$scope.sex) {
-            us.saveprofile($scope.user,$scope.ssn,$scope.name, $scope.mobilephone)
-                .then(function(data) {
-                    $scope.error2 = false;
-                    $scope.success = '太好了，保存成功';
-                  //  $window.location = '/';
-                },function(error) {
-                    $scope.error2 = error;
-                }) ;
-        }
-        else {
-            $scope.error2 = "信息不能为空";
-        }
-    }
-*/
+
 });
 
 

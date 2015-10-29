@@ -2,6 +2,7 @@
 
 
 module.exports=function(app){
+    require('../../my_modules/pag/app/routes/route.js')(app);
 
     require('../../my_modules/UserManage/app/routes/user.server.routes.js')(app);
     /* passport=require('passport');*/

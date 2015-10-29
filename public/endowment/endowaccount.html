@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<html ng-app="myApp">
-<head>
-    <meta charset="utf8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>endowment account</title>
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <script src="public/js/lib/ui-bootstrap-tpls-0.13.4.min.js"></script>
 
-</head>
-<body  ng-controller="acountCtrl">
 <ol class="breadcrumb">
     <li><a href="#">home</a></li>
     <li><a href="/endowment">养老</a></li>
@@ -42,6 +30,7 @@
 
         <input type="submit" class="btn btn-primary" value="筛选">
     </form>
+
     <div>
         <table  >
         <ul class="nav nav-tabs" id="mytab">
@@ -50,13 +39,20 @@
             </li>
         </ul>
         <hr>
-                <tr >
+            <tr >
                     <th ng-repeat="item in list" width="10%">{{item.value}}&nbsp;&nbsp;&nbsp;</th>
                 </tr>
+            <tr ng-repeat="sa in income">
+                <td>{{sa.rq}} </td> <td>&emsp; </td>
+                <td>{{sa.je}} </td><td>&emsp; </td>
+            </tr>
 
             </table>
-        </div>
-    </div>
 
-</body>
-</html>
+        <div ng-show="totalPage>1">
+
+            <ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
+        </div>
+        </div>
+
+    </div>

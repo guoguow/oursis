@@ -1,4 +1,4 @@
-var Pag = require('../../../pag/pag.js')
+var Pag = require('../../../pag/app/models/pag.js')
     ;
 
 

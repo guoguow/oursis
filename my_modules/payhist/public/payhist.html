@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <html ng-app="myApp">
-    <head>
-        <meta charset="utf8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pay History for public-home</title>
 
-    </head>
-<body>
     <div>
         <table ng-controller="PayCtrl">
             <tr ng-repeat="sa in ph">
-
                  <td>{{sa.value1}} </td><td>&nbsp;&nbsp;&nbsp;</td>
                 <td>{{sa.value2}} </td><td>&nbsp;&nbsp;&nbsp;</td>
                 <td>{{sa.value3}} </td><td>&nbsp;&nbsp;&nbsp;</td>
                 <td>{{sa.value4}} </td><td>&nbsp;&nbsp;&nbsp;</td>
-
                 </tr>
             </table>
         </div>
-    </body>
-    </html>

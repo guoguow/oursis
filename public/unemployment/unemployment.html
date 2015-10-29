@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>pension</title>
-</head>
-<body ng-controller="UnemploymentCtrl">
+
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li class="active">失业</li>
+</ol>
                失业保险基本信息
 
-<div class="collapse navbar-collapse navbar-ex1-collapse">
+<div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="UIndexCtrl">
 
 
     <table  >
-            <td><a href="/pay">缴费历史</a></td> </tr>
+        <tr><td>&emsp;&emsp;&emsp; </td></tr>
+            <tr><td><a href="/unemploymentPay">{{st1.s2.value2}}缴费历史</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td>{{idx3.pm|nulltozero}}</a></td>
+            </tr>
         <tr >
-            <td><a href="#">发放支付</a></td>
+            <td><a href="/unemploymentPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>{{idx3.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
         </tr>
         <tr >
-            <td><a href="#">政策文件解读</a></td>
+            <td><a href="/unempdoc">政策文件解读</a></td>
         </tr>
     </table>
 </div>
 
-
-</body>
-</html>

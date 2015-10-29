@@ -1,14 +1,17 @@
 
 <div ng-show="user">
-  <p>欢迎{{user.username}}</p>
+
     <div class="alert alert-warning" ng-show="success">
         {{success}}
     </div>
-    <div class="container" style="width:180px; padding: 50 50px;margin-left:0">
-
-            <ng-include src="'public/views/includes/in.html'"></ng-include>
-      <ng-include src="'public/injury/injuryindex.html'"></ng-include>
-
+    <div style="text-align: center">
+    <ng-include src="'public/views/includes/test.html'" ></ng-include>
+</div>
+    <br>
+    <br>
+    <br>
+    <div class="container"  style="text-align: center">
+            <ng-include src="'public/views/includes/in.html'" ></ng-include>
         </div>
     </div>
 </div>

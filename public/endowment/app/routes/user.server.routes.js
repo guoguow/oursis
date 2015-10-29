@@ -11,4 +11,9 @@ module.exports=function(app){
     app.route('/endowpaid').post(endow.endowpaid);
     app.route('/jmendowpaid').post(endow.jmendowpaid);
     app.route('/endowindex').post(endow.endowindex);
+    app.route('/endowindex2').post(endow.endowindex2);
+    app.route('/endowincome').post(endow.endowincome);
+    app.route('/endowexp').post(endow.endowexp);
+
+
 }

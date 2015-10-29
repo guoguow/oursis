@@ -1,26 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>pension</title>
-</head>
-<body ng-controller="HealthCtrl">
-               医疗保险基本信息
 
-<div class="collapse navbar-collapse navbar-ex1-collapse">
 
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li class="active">医疗</li>
+</ol>
+医疗保险基本信息
+<div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="HIndexCtrl">
 
     <table  >
+        <br>
         <tr >
-            <td><a href="#">个人账户</a></td></tr>
+            <td><a href="/hacount">个人账户</a></td></tr>
         <tr >
-            <td><a href="/pay">缴费历史</a></td> </tr>
+            <td><a href="/hpay">缴费历史</a></td>
+            <td>&emsp;&emsp;&emsp; </td>
+            <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>{{idx2.pm|nulltozero}}</a></td>
+        </tr>
+
         <tr >
-            <td><a href="/healthpm">发放支付</a></td>
+            <td><a href="/hpaid">发放支付</a></td>
+            <td>&emsp;&emsp;&emsp; </td>
+            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>{{idx2.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
+        </tr>
+        <tr >
+            <td><a href="/houtpay">以往非{{st1.s3.value3}}缴费记录</a></td>
+            <td>&emsp;&emsp;&emsp; </td>
+            <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>{{idx22.pm|nulltozero}}</a></td>
+        </tr>
+
+        <tr >
+            <td><a href="/hdoc">政策文件解读</a></td>
         </tr>
     </table>
 </div>
 
 
-</body>
-</html>

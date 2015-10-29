@@ -23,8 +23,6 @@ User.gete =  function  get(a,tablename,condition,callback) {
         if(err){
             throw err;
         }else{
-            console.log(results);
-            console.log(callback);
             return  callback(err,results,fields);
         }
     });

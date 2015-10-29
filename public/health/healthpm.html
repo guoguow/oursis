@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <html ng-app="myApp">
-    <head>
-        <meta charset="utf8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pay History for public-home</title>
-        <link rel="stylesheet" href="public/css/bootstrap.min.css">
-        <script src="public/js/lib/ui-bootstrap-tpls-0.13.4.min.js"></script>
 
-    </head>
-<body  >
 
 <div  >
 
@@ -68,9 +56,9 @@
                 </tr>
             </table>
         </div>
+        <div ng-show="totalPage>1">
 
+            <ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
+        </div>
     </div>
-<ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
-
-</body>
-</html>
+    </div>

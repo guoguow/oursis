@@ -2,27 +2,44 @@
 
     <div class="container">
 
-        <div ng-controller="TypeCtrl">
+        <div ng-controller="TypeCtrl"  style = " margin:auto ;width:900px; height:300px;">
 
-            <table  >
+            <table  style="margin: auto;width:900px;">
                 <tr><th></th><td>&emsp;&emsp; </td>
                 <th>缴费年限至</th><td>&emsp;&emsp; </td>
                 <th>缴费总额</th><td>&emsp;&emsp; </td>
                 <th>支付总额</th></tr>
 
-                <tr ng-controller="EIndexCtrl">
+                <tr ng-controller="EIndexCtrl" ng-show="st1.s1.value1">
                     <td ><a href="/endowment">{{st1.s1.value1}}</a></td><td>&emsp;&emsp;&emsp; </td>
-                    <td><a href="/endowment">{{idx.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
-                    <td><a href="/endowment">{{idx.pm}}</a></td><td>&emsp;&emsp;&emsp; </td>
-                    <td><a href="/endowment">{{idx.je}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/endowment">{{idx1.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/endowment">{{idx1.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/endowment">{{idx1.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
                 </tr>
-                                    <tr>
-                                        <td ><a href="/health">{{st1.s3.value3}}</a></td> </tr>
-                                    <tr>
-                                        <td ><a href="/birth">{{st1.s5.value5}}</a></td> </tr>
-                                    <tr>
-                                        <td ><a href="/unemployment">{{st1.s2.value2}}</a></td>
-                                    </tr>
+                <tr ng-controller="HIndexCtrl" ng-show="st1.s3.value3">
+                    <td ><a href="/health">{{st1.s3.value3}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/health">{{idx2.dm}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/health">{{idx2.pm|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/health">{{idx2.je|nulltozero}}</a></td><td>&emsp;&emsp;&emsp; </td>
+                </tr>
+                <tr ng-controller="UIndexCtrl"  ng-show="st1.s2.value2">
+                    <td ><a href="/unemployment ">{{st1.s2.value2}}</a></td> <td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/unemployment ">{{idx3.dm}} </a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/unemployment ">{{idx3.pm|nulltozero}} </a></td><td>&emsp;&emsp;&emsp;  </td>
+                    <td><a href="/unemployment ">{{idx3.je|nulltozero}} </a></td>
+                </tr>
+                <tr ng-controller="BIndexCtrl" ng-show="st1.s5.value5" >
+                    <td ><a href="/birth ">{{st1.s5.value5}}</a></td> <td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/birth ">{{idx5.dm}} </a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/birth ">{{idx5.pm|nulltozero}} </a></td><td>&emsp;&emsp;&emsp;  </td>
+                    <td><a href="/birth ">{{idx5.je|nulltozero}} </a></td>
+                </tr>
+                <tr ng-controller="IIndexCtrl" ng-show="st1.s4.value4">
+                    <td ><a href="/injury ">{{st1.s4.value4}}</a></td> <td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/injury ">{{idx4.dm}} </a></td><td>&emsp;&emsp;&emsp; </td>
+                    <td><a href="/injury ">{{idx4.pm|nulltozero}} </a></td><td>&emsp;&emsp;&emsp;  </td>
+                    <td><a href="/injury ">{{idx4.je|nulltozero}} </a></td>
+                </tr>
             </table>
 
         </div>

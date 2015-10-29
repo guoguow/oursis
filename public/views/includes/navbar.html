@@ -21,19 +21,17 @@
         <li class="dropdown" ng-show="user">
           <a href="/#">首页</a>
         </li>
-        <li class="dropdown" ng-show="user">
-          <a href="/list">列表</a>
-        </li>
+          <li  class="dropdown" ng-show="user">
+              <a href="/profile" ng-click="profile()">用户信息</a>
+          </li>
+
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" ng-show="user">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/profile" ng-click="profile()">用户信息</a></li>
-            <li><a href="/logout">退出</a></li>
-          </ul>
-        </li>
+
+            <li ng-show="user"><a>欢迎{{user.username}}</a></li>
+            <li class="dropdown" ng-show="user"><a href="/logout">退出</a></li>
+
         <li ng-hide="user">
           <a href="/signup">注册</a>
         </li>

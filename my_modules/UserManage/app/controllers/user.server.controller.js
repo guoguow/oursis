@@ -33,11 +33,9 @@ exports.signin=function(req,res,next){
 
     var lname=req.query.username;
     var lpassword=req.query.password;
-    console.log(req.query);
     var a="username,password,ssn";
     var condition={name:"username",value:lname};
     var tablename="user";
-    console.log(lname);
     User.get(a,tablename,condition, function(err, user) {
         console.log('enter callback');
         console.log(user);
@@ -52,7 +50,6 @@ exports.signin=function(req,res,next){
         };
         if (!User.authenticate(user,lpassword)) {
             console.log('incorrect password');
-            console.log(lpassword);
             message='Incorrect Password'
             return res.json(403,{error:message});
         };
@@ -69,7 +66,6 @@ exports.signin=function(req,res,next){
 exports.signup = function(req, res, next) {
     if (!req.user) {
         console.log('!requser');
-        console.log(req.body);
         var message = null;
 
         console.log('before save')
@@ -91,12 +87,10 @@ exports.signup = function(req, res, next) {
             user.save(function(err) {
                 if (err) {
                     var message = getErrorMessage(err);
-                    console.log(message);
                     req.flash('error', message);
                     return res.json(403,{error:message});
                 }
                 req.login(user, function(err) {
-                    console.log(user);
                     if (err) return next(err);
                     console.log('succ');
                     return res.json(user);
@@ -105,14 +99,12 @@ exports.signup = function(req, res, next) {
         });
     } else {
         console.log('exist user');
-        console.log(req.user);
         return res.json(req.user);
     }
 };
 exports.getprofile=function(req,res,next) {
     console.log('goto get profile');
 
-    console.log(req.query);
     var ssn = req.query.ssn;
     var a="aac001 ssn,AAC003 name,AAC002 idcard,AAC004 sex,AAE005 mobilephone,BAC005 address ";
     var condition={name:"aac001",value:ssn};
@@ -124,7 +116,6 @@ exports.getprofile=function(req,res,next) {
             return next(err);
         }
         console.log('return profile');
-        console.log(data);
         return res.json(data);
 
     })
@@ -145,7 +136,7 @@ exports.checkprofile=function(req,res,next){
                     return next(error);
                     console.log("error"+error);
                 } else {
-                    console.log('update ok!'+data);
+                    console.log('update ok!');
 
                     return res.json(data);
                 }
@@ -164,7 +155,6 @@ var check=function(lname,ssn,sname,idcard,callback){
     var a = "ssn,username";
     var condition = {name: "ssn", value: ssn};
     var tablename = "user";
-    console.log(lname);
     User.get(a,tablename,condition,function(err,user,fields) {
         if (err) {
             console.log('something wrong');

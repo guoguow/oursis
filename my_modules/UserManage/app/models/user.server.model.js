@@ -40,7 +40,6 @@ User.prototype.save = function  save(callback) {
         if (err) {
             throw err;
         } else {
-            console.log(callback);
             return callback(err,user.username, fields);
 
 
@@ -56,8 +55,6 @@ User.get =  function  get(a,tablename,condition,callback) {
         if(err){
             throw err;
         }else{
-            console.log(results);
-            console.log(callback);
             return  callback(err,results[0],fields);
         }
     });
@@ -71,8 +68,6 @@ User.check =  function  check(a,tablename,ssn,sname,idcard,callback) {
         if(err){
             throw err;
         }else{
-            console.log(results);
-            console.log(callback);
             return  callback(err,results[0],fields);
         }
     });
@@ -99,7 +94,6 @@ User.prototype.update =  function  update(callback) {
         if(err){
             throw err;
         }else{
-            console.log(callback);
             return  callback(err,user.ssn,fields);
         }
     });
@@ -122,7 +116,6 @@ User.prototype.update2 =  function  update(callback) {
         if(err){
             throw err;
         }else{
-            console.log(callback);
             return  callback(err,user.ssn,fields);
         }
     });
@@ -133,12 +126,10 @@ User.hashPassword = function hashPassword(password){
 
     var  md5 = crypto.createHash('md5');
     var password = md5.update(password).digest('base64');
-    console.log(password);
 
     return password;
 };
 
 User.authenticate=function authenticate(user,password){
-    console.log(user.password);
     return user.password==User.hashPassword(password);
 };

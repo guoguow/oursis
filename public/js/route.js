@@ -3,12 +3,16 @@ angular.module('myApp', [
   'ngRoute',
   'ngCookies',
   'myApp.controllers',
-  'myApp.services'
- // 'filters'
+  'myApp.services',
+  'myApp.filters',
+    'ngAnimate',
+    'ngTouch',
+    'ui.bootstrap',
+    'chieffancypants.loadingBar'
 ]).
 
-config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
+config(function ($routeProvider, $locationProvider,cfpLoadingBarProvider) {
+        $routeProvider.
     when('/', {
       templateUrl: 'public/views/index.html'
     }).
@@ -16,8 +20,10 @@ config(function ($routeProvider, $locationProvider) {
           templateUrl: 'public/views/error.html'
       }).
     otherwise({
-      redirectTo: '/error'
+      redirectTo: '/'
     });
 
   $locationProvider.html5Mode(true);
-});
+  cfpLoadingBarProvider.includeSpinner = true;
+
+    });

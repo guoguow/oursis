@@ -8,32 +8,46 @@
     <title>实验登录-home</title>
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/style.css" />
-      <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="public/css/styles2.css" />
+      <link   rel='stylesheet' href='public/js/lib/loading-bar.css' />
 
   </head>
 
-  <body ng-controller="MainCtrl">
-
-    <ng-include src="'public/views/includes/navbar.html'"></ng-include>
-    <ng-include src="'public/views/includes/abltree.html'"></ng-include>
+  <body ng-controller="MainCtrl" >
 
 
+  <ng-include src="'public/views/includes/navbar.html'"></ng-include>
+  <div ng-show="user">
+      <ng-include src="'public/views/includes/abltree.html'"></ng-include>
+  </div>
     <div class="container">
       <div ng-view></div>
     </div>
 
     <script src="public/js/lib/jquery.min.js"></script>
     <script src="public/js/lib/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/lib/bootstrap-paginator.min.js"></script>
+    <script type="text/javascript" src="public/js/lib/bootstrap-paginator.min.js"></script>
     <script src="public/js/lib/angular/angular.min.js"></script>
     <script src="public/js/lib/angular/angular-route.js"></script>
     <script src="public/js/lib/angular/angular-resource.js"></script>
     <script src="public/js/lib/angular/angular-cookies.js"></script>
     <script src="public/js/lib/jquery.ztree.all-3.5.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-touch.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+    <script src="public/js/lib/angular/ui-bootstrap-tpls-0.14.2.js"></script>
+
+    <script src="public/js/lib/loading-bar.js"></script>
+
+
     <script src="public/js/controllers.js"></script>
     <script src="public/js/services.js"></script>
     <script src="public/js/route.js"></script>
+    <script src="public/js/filter.js"></script>
+
 
     <script src="my_modules/UserManage/public/js/controllers.js"></script>
     <script src="my_modules/UserManage/public/js/services.js"></script>
@@ -75,6 +89,7 @@
     <script src="public/unemployment/public/js/route.js"></script>
     <script src="public/unemployment/public/js/services.js"></script>
     <script src="public/unemployment/public/js/controllers.js"></script>
+
 
     <!--
 

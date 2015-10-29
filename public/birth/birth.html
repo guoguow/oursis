@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>pension</title>
-</head>
-<body ng-controller="BirthCtrl">
+
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li class="active">生育</li>
+</ol>
                生育保险基本信息
 
-<div class="collapse navbar-collapse navbar-ex1-collapse">
+<div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="BIndexCtrl">
 
 
     <table  >
-            <td><a href="/pay">缴费历史</a></td> </tr>
+        <tr><td>&emsp;&emsp;&emsp; </td></tr>
+            <tr><td><a href="/birthPay">{{st1.s5.value5}}缴费历史</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td>{{idx5.pm|nulltozero}}</a></td>
+            </tr>
         <tr >
-            <td><a href="#">发放支付</a></td>
+            <td><a href="/birthPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td>{{idx5.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
         </tr>
         <tr >
-            <td><a href="#">政策文件解读</a></td>
+            <td><a href="/birthdoc">政策文件解读</a></td>
         </tr>
     </table>
 </div>
 
-
-</body>
-</html>

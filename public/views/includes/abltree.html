@@ -7,14 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="fragment" content="!" />
-
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body >
 
 <div class="container" style="width:180px; padding: 50 50px;margin-right:0" >
-    <div class="row" ng-controller="TypeCtrl">
+    <div class="row" ng-controller="TypeCtrl" >
         <nav class="navbar navbar-default" role="navigation">
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -22,23 +19,18 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><img border="0" src="public/images/left.png">社保信息 <b class="caret"></b></a>
                         <ul class="dropdown-menu menu-top">
-                            <table  ng-repeat="ss in st1">
+                            <table>
                             <tr >
-                                  <td><a href="/endowment">{{ss.value1}}</a></td></tr>
+                                  <td><a href="/endowment">{{st1.s1.value1}}</a></td></tr>
                                 <tr >
-                                    <td><a href="/health">{{ss.value3}}</a></td> </tr>
+                                    <td><a href="/health">{{st1.s3.value3}}</a></td> </tr>
                                 <tr >
-                                    <td><a href="/birth">{{ss.value5}}</a></td>
-                                 </tr>
+                                    <td><a href="/birth">{{st1.s5.value5}}</a></td></tr>
                                 <tr >
-                                    <td><a href="/injury">{{ss.value4}}</a></td>
-                                </tr>
+                                    <td><a href="/injury">{{st1.s4.value4}}</a></td> </tr>
                                 <tr >
-                                <td><a href="/unemployment">{{ss.value2}}</a></td>
-                            </tr>
-
-
-</table>
+                                <td><a href="/unemployment">{{st1.s2.value2}}</a></td> </tr>
+                                    </table>
                                                   </ul>
                                               </li>
                                           </ul>
@@ -49,11 +41,6 @@
                           </div>
 
 
-                          <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-                          <script src="/bower_components/angular/angular.min.js"></script>
-                          <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-                          <script src="/bower_components/angular-route/angular-route.min.js"></script>
-                          <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
 
 
