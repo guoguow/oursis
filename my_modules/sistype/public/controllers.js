@@ -7,7 +7,7 @@ var app = angular.module('myApp.controllers');
 /**
  * Login controller
  */
-app.controller('TypeCtrl', function ($scope, $window,user) {
+app.controller('TypeCtrl', function ($scope, $window,user,type) {
     $scope.st1=user.getSt1();
 
 });

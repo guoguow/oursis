@@ -13,10 +13,11 @@ services.factory('user', function($http, $cookies, $q){
       getSt1: function() {
           return angular.fromJson($cookies.st1);
       }
-
   };
 
 });
+
+
 
 
 

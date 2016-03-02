@@ -1,4 +1,8 @@
-
+<ol class="breadcrumb">
+    <li><a href="#">home</a></li>
+    <li><a href="/health">医疗</a></li>
+    <li class="active">发放支付明细</li>
+</ol>
 
 <div  >
 
@@ -46,12 +50,11 @@
                     <th ng-repeat="item in list" width="10%">{{item.value}}&nbsp;&nbsp;&nbsp;</th>
 
                 </tr>
-                <tr ng-repeat="item in payments">
+                <tr ng-repeat="item in income">
 
-                    <td width="10%">{{item.yybm}} </td>
-                    <td width="10%">{{item.jbbm}} </td>
-                    <td width="10%">{{item.zyrq|date:'yyyy-MM-dd'}} </td>
-                    <td width="10%">{{item.cyrq|date:'yyyy-MM-dd'}} </td>
+                    <td >{{item.rq}} </td>
+                    <td>{{item.je}} </td>
+
 
                 </tr>
             </table>
@@ -61,4 +64,6 @@
             <ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
         </div>
     </div>
-    </div>
+    <script  src="/public/js/lib/chart/d3.v3.min.js"  charset="utf-8"></script>
+
+</div>

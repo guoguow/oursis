@@ -34,7 +34,7 @@ User.prototype.save = function  save(callback) {
     };
     //uuid = uid.v4();
     //插入数据库
-    var sql ="insert into user (firstname,lastname,email,username,password) values("+user.firstname+","+user.lastname+","+user.email+","+user.username+","+user.password+")";
+    var sql ="insert into user (firstname,lastname,email,username,password) values( '"+user.firstname+"','"+user.lastname+"','"+user.email+"','"+user.username+"','"+user.password+"')";
 
     client.getDbCon(sql,function(err,results,fields){
         if (err) {

@@ -1,7 +1,5 @@
 
 var app = angular.module('myApp.controllers');
-
-
 /**
  * Login controller
  */
@@ -15,16 +13,62 @@ app.controller('LoginCtrl', function ($scope, $window,$cookies,user, us,type) {
         .then(function(data) {
           console.log(data);
               $scope.user = user.get();
-          type.getsistype($scope.user,$scope).then(
-              function(data){
-            $window.location = '/';
+          type.getsistype($scope.user,$scope)
+              .then(function(data) {
+                  console.log("before reflash"+data);
+                  $scope.st1=user.getSt1();
+                  type.endow($scope.user,$scope)
+                      .then(function(data) {
+                          $scope.st1=user.getSt1();
+                          type.health($scope.user,$scope)
+                              .then(function(data) {
+                                  $scope.st1=user.getSt1();
+                                  type.injury($scope.user,$scope)
+                                      .then(function(data) {
+                                          $scope.st1=user.getSt1();
+                                          type.birth($scope.user,$scope)
+                                              .then(function(data) {
+                                                  $scope.st1=user.getSt1();
+                                                  type.unemploy($scope.user,$scope)
+                                                      .then(function(data) {
+                                                          $window.location = '/';
+                                                      }
+                                                      ,function(error){
+                                                          $scope.error = error;
+                                                          $window.location = '/';
+                                                      }
+                                                  );
+                                                  console.log("finished get unemploy"+data);
+                                              }
+                                              ,function(error){
+                                                  $scope.error = error;
+                                              }
+                                          );
+                                          console.log("finished get birth"+data);
+                                      }
+                                      ,function(error){
+                                          $scope.error = error;
+                                      }
+                                  );
+                                  console.log("finished get injury"+data);
+
+                                                                }
+                              ,function(error){
+                                  $scope.error = error;
+                              }
+                          );
+                          console.log("finished get health"+data);
+                      }
+                      ,function(error){
+                          $scope.error = error;
+                      }
+                  );
+                  console.log("finished get endowment"+data);
               },function(error){
-                  $window.location = '/';
+
                   $scope.error = error;
               }
           );
-
-
         }, function(error) {
           $scope.error = error;
         });

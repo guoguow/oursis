@@ -19,6 +19,29 @@ app.controller('IIndexCtrl', function ($scope, $window,injury) {
 });
 app.controller('InjuryPayCtrl', function ($scope, $window,injury,pag) {
 
+    injury.ipaystack($scope.user, $scope)
+        .then(function (data) {
+            var chart = nv.models.multiBarChart();
+            d3.select('#chart1 svg').datum([
+                    {
+                        key: "个人",
+                        color: "#51A351",
+                        values:$scope.eg
+
+                    },
+                    {
+                        key: "单位",
+                        color: "#BD362F",
+                        values:$scope.ed
+
+                    }
+                ]
+
+            ).transition().duration(500).call(chart);
+        }, function (error) {
+            $scope.error = error;
+        });
+
     $scope.statsign=3;
 
     console.log('before get Injury detail payhist data');
@@ -47,7 +70,26 @@ app.controller('InjuryPayCtrl', function ($scope, $window,injury,pag) {
 });
 
 app.controller('InjuryPaidCtrl', function ($scope, $window,injury,pag) {
+    injury.ipaidstack($scope.user, $scope)
+        .then(function (data) {
 
+
+            var chart = nv.models.multiBarChart();
+            d3.select('#chart1 svg').datum([
+                    {
+                        key: "补贴金额",
+                        color: "#51A351",
+                        values:$scope.eg
+
+                    }
+                ]
+
+            ).transition().duration(500).call(chart);
+
+
+        }, function (error) {
+            $scope.error = error;
+        });
     $scope.statsign=8;
 
     console.log('before get injury paid detail data');
@@ -72,5 +114,26 @@ app.controller('InjuryPaidCtrl', function ($scope, $window,injury,pag) {
         }
         injury.paid($scope.user,$scope, $scope.dt1,$scope.dt2);
     }
+
+});
+
+app.controller('IyearCtrl', function ($scope, $window,injury) {
+    console.log("get ryear data of  injury payhistory table");
+    $scope.date4=$scope.st1.s4.date;
+    injury.getyear($scope.user,$scope,$scope.date4);
+
+    console.log("get record page data of  injury");
+    injury.getrecord($scope.user,$scope,$scope.date4);
+
+    // submit form
+    $scope.submit = function(date44) {
+        console.log("get record page data of past  injury");
+
+        $scope.date4=date44;
+        injury.getrecord($scope.user,$scope,$scope.date4);
+
+    };
+
+
 
 });

@@ -18,6 +18,30 @@ app.controller('BIndexCtrl', function ($scope, $window,birth) {
 });
 app.controller('BirthPayCtrl', function ($scope, $window,birth,pag) {
 
+    birth.bpaystack($scope.user, $scope)
+        .then(function (data) {
+            var chart = nv.models.multiBarChart();
+                d3.select('#chart1 svg').datum([
+                        {
+                            key: "个人",
+                            color: "#51A351",
+                            values:$scope.eg
+
+                        },
+                        {
+                            key: "单位",
+                            color: "#BD362F",
+                            values:$scope.ed
+
+                        }
+                    ]
+
+                ).transition().duration(500).call(chart);
+        }, function (error) {
+            $scope.error = error;
+        });
+
+
     $scope.statsign=2;
 
     console.log('before get birth detail payhist data');
@@ -47,6 +71,27 @@ app.controller('BirthPayCtrl', function ($scope, $window,birth,pag) {
 
 app.controller('BirthPaidCtrl', function ($scope, $window,birth,pag) {
 
+
+    birth.bpaidstack($scope.user, $scope)
+        .then(function (data) {
+
+
+            var chart = nv.models.multiBarChart();
+            d3.select('#chart1 svg').datum([
+                    {
+                        key: "补贴金额",
+                        color: "#51A351",
+                        values:$scope.eg
+
+                    }
+                ]
+
+            ).transition().duration(500).call(chart);
+
+
+        }, function (error) {
+            $scope.error = error;
+        });
     $scope.statsign=7;
 
     console.log('before get birth paid detail data');
@@ -73,4 +118,21 @@ app.controller('BirthPaidCtrl', function ($scope, $window,birth,pag) {
         birth.paid($scope.user,$scope, $scope.dt1,$scope.dt2);
     }
 
+});
+
+app.controller('byearCtrl', function ($scope, $window,birth) {
+    console.log("get ryear data of  birth payhistory table");
+    $scope.date5=$scope.st1.s5.date;
+    birth.getyear($scope.user,$scope,$scope.date5);
+
+    console.log("get record page data of  endowment");
+    birth.getrecord($scope.user,$scope,$scope.date5);
+
+    // submit form
+    $scope.submit = function(date11) {
+        console.log("get record page data of past  endowment");
+
+        $scope.date5=date11;
+        birth.getrecord($scope.user,$scope,$scope.date5);
+    };
 });

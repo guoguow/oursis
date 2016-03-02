@@ -17,7 +17,9 @@ config(function ($routeProvider, $locationProvider) {
       }).
       when('/hpaid', {
           templateUrl: 'public/health/healthpaid.html',
-          controller: 'hPaidCtrl'
+          controller: 'hPaidCtrl',
+          cache:'false'
+
       }).
       when('/houtpay', {
           templateUrl: 'public/health/outofdatePay.html',

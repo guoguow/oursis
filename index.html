@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="public/css/style.css" />
       <link rel="stylesheet" href="public/css/styles2.css" />
       <link   rel='stylesheet' href='public/js/lib/loading-bar.css' />
+      <link rel="stylesheet" href="public/js/lib/chart/pie-chart.css" />
+      <link rel="stylesheet" href="public/js/lib/chart/nv.d3.css" />
 
   </head>
 
   <body ng-controller="MainCtrl" >
 
 
+
   <ng-include src="'public/views/includes/navbar.html'"></ng-include>
-  <div ng-show="user">
-      <ng-include src="'public/views/includes/abltree.html'"></ng-include>
-  </div>
+
     <div class="container">
       <div ng-view></div>
     </div>
@@ -33,11 +34,12 @@
     <script src="public/js/lib/angular/angular-cookies.js"></script>
     <script src="public/js/lib/jquery.ztree.all-3.5.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-touch.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+    <script src="public/js/lib/angular/jquery.min.js"></script>
+    <script src="public/js/lib/angular/angular.min.js"></script>
+    <script src="public/js/lib/angular/angular-animate.min.js"></script>
+    <script src="public/js/lib/angular/angular-touch.min.js"></script>
+    <script src="public/js/lib/angular/TweenMax.min.js"></script>
+
     <script src="public/js/lib/angular/ui-bootstrap-tpls-0.14.2.js"></script>
 
     <script src="public/js/lib/loading-bar.js"></script>
@@ -90,15 +92,13 @@
     <script src="public/unemployment/public/js/services.js"></script>
     <script src="public/unemployment/public/js/controllers.js"></script>
 
+  <script src="public/js/lib/chart/d3.v3.min.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/pie-chart.min.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/pie-chart.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/angularjs-nvd3-directives.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/moment.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/d3.min.js" charset="utf-8"></script>
+  <script src="public/js/lib/chart/nv.d3.js" charset="utf-8"></script>
 
-    <!--
-
-           <link rel="stylesheet" href="public/js/lib/angular-bootstrap-datepicker.css" />
-    <script src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
-
- <script src="my_modules/UserManage/public/js/services.js"></script>
-
-
-       <script src="/js/lib/angular-bootstrap-datepicker.js" charset="utf-8"></script> -->
   </body>
 </html>

@@ -1,5 +1,5 @@
 
-var  client = require('../../../MDaccess/database.js'),
+var  client = require('../../../DBaccess/database.js'),
     crypto=require('crypto');
 function  Pay(userstat){
      this.username=userstat.username;

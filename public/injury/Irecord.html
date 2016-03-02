@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>横向的时间轴</title>
+    <link rel="stylesheet" href="/public/css/stylee.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<div id="timeline" ng-controller="IyearCtrl">
+
+    <ul id="dates">
+        <li  ng-repeat="iy in iyearpaid">
+            <a ng-click="submit(iy.aae002)">
+                {{iy.aae002|cutyear}}</a>
+        </li>
+
+            <li><a href="/injury">{{st1.s4.date}}</a></li>
+
+
+            <li  ng-repeat="iy in iyearpay">
+                <a ng-click="submit(iy.AAE034)">
+                   {{iy.AAE034|cutyear}}</a>
+            </li>
+    </ul>
+
+    <ul id="issues">
+        <div class="well well-lg" >
+                <h2>{{date4|cutyear}}年 本年度工伤个人权益汇总信息</h2>
+              <br><br>
+                <DIV >
+                    <div >
+                        <table>
+                      <tr >
+                                <td >本年度缴费情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >个人月缴费基数</td><td>&emsp; </td>
+                                <td >单位缴费额</td><td>&emsp; </td>
+                                <td >个人缴费额</td><td>&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="er in ipayRecord" >
+                                <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td>{{er.AAE180|nulltozero}}</td><td>&emsp;</td>
+                                <td>{{er.comp|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{er.pers|nulltozero}}</td>
+                            </tr>
+                            <tr>
+                                <td >工伤保险待遇享受开始年月</td><td>&emsp; </td>
+                                <td >伤残等级</td><td>&emsp; </td>
+                                <td >本年工伤保险基金支付总额</td><td>&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="item in ipaidRecord2" >
+                                <td>{{item.ALC050|nulltozero}}</td><td>&emsp;</td>
+                                <td>{{item.ALA040|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{item.je|nulltozero}}</td>
+                            </tr>
+                            <tr >
+                            <td ng-repeat="mn in ipaidRecord" ng-show="$index<6">
+                                <table >
+                                    <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                    <tr><td>{{mn.bla006}}</td><td>&emsp;</td></tr>
+                                <tr><td>{{mn.je|nulltozero}}</td><td>&emsp;</td></tr>
+                                </table>
+                            </td>
+                            </tr>
+                            <tr >
+                                <td ng-repeat="mn in ipaidRecord" ng-show="$index>=6">
+                                    <table >
+                                        <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                        <tr><td>{{mn.bla006}}</td><td>&emsp;</td></tr>
+                                        <tr><td>{{mn.je|nulltozero}}</td><td>&emsp;</td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </DIV>
+        </div>
+
+    </ul>
+
+</div>
+
+
+</body>
+</html>
+
+

@@ -1,13 +1,16 @@
+<body onUnload="opener.location.reload()">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css">
 
 <ol class="breadcrumb">
     <li><a href="#">home</a></li>
-    <li><a href="/health">医疗</a></li>
+    <li><a href="/health" onclick="window.parent.location.reload(); ">医疗</a></li>
+
     <li class="active">发放支付明细</li>
 </ol>
 
 <p>{{user.username}}的{{st1.s3.value3}}医疗发放支付历史明细</p>
 
-<div ng-controller="hPaidCtrl" >
+<div ng-controller="hPaidCtrl">
 
     <form ng-submit="submit()">
         <div>
@@ -26,7 +29,6 @@
                 </div>
             </div>
         </div>
-        <pre>Selected  date range  is: <em>{{dt1 | date:'fullDate' }}——{{dt2 | date:'fullDate' }}</em></pre>
         <div class="alert alert-warning" ng-show="error">
             {{error}}
         </div>
@@ -37,19 +39,37 @@
     <div>
 
         <!--  why  sa.kind not show in the html?????????? not resloved -->
-        <p>{{user.username}}的医疗支付信息</p>
+        <p>{{user.username}}的医疗支付信息++++++++++</p>
 
         <ul class="nav nav-tabs" id="mytab">
             <li ng-repeat="item in listNames"  ng-class="{active: $index == 0}">
                 <a  data-toggle="tab" ng-click="isTab(item.id)"> {{item.name}}</a>
             </li>
         </ul>
-
+        <div ng-hide="tab1==00">
+<table >
+    <td>
+        <div  ng-controller="hPaidCtrl" id="chart2" style="height: 200px;width: 400px;">
+            拨付总额信息
+            <svg ></svg>
+        </div>
+        </td>
+  <td>
+      <div style="height: 200px;width: 100px;">
+          </div>
+  </td>
+    <td>
+    <div  ng-controller="hPaidCtrl" id="chart22" style="height: 200px;width: 600px;">
+        拨付总额信息
+        <svg ></svg>
+    </div>
+    </td>
+</table>
         <hr>
 
         <div>
             <table  >
-                <tr >
+                <tr ng-show="list">
                     <th ng-repeat="item in list" width="10%">{{item.value}}&nbsp;&nbsp;&nbsp;</th>
                 </tr>
                 <tr ng-repeat="it in hpaid">
@@ -68,7 +88,20 @@
 
             <ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
         </div>
+
+        <br>
+
+</div>
+        <div ng-show="tab1==00">
+
+            <div  ng-controller="hzCtrl" id="chart1" style="height: 200px;">
+                历年拨付总额信息
+                <svg></svg>
+            </div>
+        </div>
     </div>
+
+    <script  src="/public/js/lib/chart/d3.v3.min.js"  charset="utf-8"></script>
 
 </div>
 

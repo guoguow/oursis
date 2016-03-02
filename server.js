@@ -10,3 +10,9 @@ app.listen(3000);
 console.log('server 3000');
 module.exports=app;
 
+app.get('/health',function(req,res){
+    res.sendFile( __dirname+'/index.html');
+});
+app.get('/hpaid',function(req,res){
+    res.sendFile( __dirname+'/index.html');
+});

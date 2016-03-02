@@ -15,5 +15,15 @@ module.exports=function(app){
     app.route('/endowincome').post(endow.endowincome);
     app.route('/endowexp').post(endow.endowexp);
 
+    app.route('/epayRecord').post(endow.endowpayrecord);
+    app.route('/eaccRecord').post(endow.endowaccrecord);
+    app.route('/epaidRecord').post(endow.endowpaidrecord);
 
+    app.route('/eyearpay').post(endow.eyearpay);
+    app.route('/eyearpaid').post(endow.eyearpaid);
+    app.route('/status').post(endow.status);
+
+    app.route('/eaccye').post(endow.eaccye);
+    app.route('/epaystack').post(endow.epaystack);
+    app.route('/epaidstack').post(endow.epaidstack);
 }

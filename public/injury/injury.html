@@ -11,17 +11,19 @@
     <table  >
         <tr><td>&emsp;&emsp;&emsp; </td></tr>
             <tr><td><a href="/injuryPay">{{st1.s4.value4}}缴费历史</a></td><td>&emsp;&emsp;&emsp; </td>
-                <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
-                <td>{{idx4.pm|nulltozero}}</a></td>
+                <td><a href="/injuryPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td><a href="/injurydoc">政策文件解读</a></td>
+
             </tr>
         <tr >
-            <td><a href="/injuryPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>{{idx4.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
-        </tr>
-        <tr >
-            <td><a href="/injurydoc">政策文件解读</a></td>
+            <td>总缴费额</a></td>
+            <td>{{idx4.pm|nulltozero}}</a></td>
+            <td>总拨付额</a></td>            <td>&emsp;&emsp;&emsp; </td>
+
+            <td>{{idx4.je|nulltozero}} </a></td>
         </tr>
     </table>
+    <ng-include src="'public/injury/Irecord.html'" ></ng-include>
+
 </div>
 

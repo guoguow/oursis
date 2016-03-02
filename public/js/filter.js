@@ -6,6 +6,11 @@ myapp.filter('nulltozero', function() {
       return input;
   };
 })
+myapp.filter('cutyear', function() {
+    return function(input) {
+         return  input.substring(0,4);
+    };
+})
 .filter('range', function() {
   return function(input, total) {
     total = parseInt(total);

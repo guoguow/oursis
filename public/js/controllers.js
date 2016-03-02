@@ -5,6 +5,7 @@ var app = angular.module('myApp.controllers',[]);
  * Main / Root controller
  */
 app.controller('MainCtrl', function ($scope, user,pag,cfpLoadingBar,$timeout) {
+
     $scope.currentPage =1;
     $scope.totalPage =1;
     $scope.pageSize = 4;
@@ -13,7 +14,7 @@ app.controller('MainCtrl', function ($scope, user,pag,cfpLoadingBar,$timeout) {
     $scope.user = user.get();
     console.log("user =", $scope.user);
     $scope.st1=user.getSt1();
-
+    console.log("st1 =", $scope.st1);
     $scope.start = function() {
         cfpLoadingBar.start();
     };
@@ -32,8 +33,4 @@ app.controller('MainCtrl', function ($scope, user,pag,cfpLoadingBar,$timeout) {
     }, 750);
 
 });
-
-
-
-
 

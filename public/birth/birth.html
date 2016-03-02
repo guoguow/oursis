@@ -11,17 +11,20 @@
     <table  >
         <tr><td>&emsp;&emsp;&emsp; </td></tr>
             <tr><td><a href="/birthPay">{{st1.s5.value5}}缴费历史</a></td><td>&emsp;&emsp;&emsp; </td>
-                <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
-                <td>{{idx5.pm|nulltozero}}</a></td>
+                <td><a href="/birthPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
+                <td><a href="/birthdoc">政策文件解读</a></td>
+
             </tr>
         <tr >
-            <td><a href="/birthPaid">发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>{{idx5.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
+
+            <td>总缴费额</a>&emsp;{{idx5.pm|nulltozero}}</a></td><td>&emsp;&emsp; </td>
+
+            <td>总拨付额</a>&emsp;{{idx5.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
         </tr>
-        <tr >
-            <td><a href="/birthdoc">政策文件解读</a></td>
-        </tr>
+
     </table>
+
+    <ng-include src="'public/birth/Brecord.html'" ></ng-include>
+
 </div>
 

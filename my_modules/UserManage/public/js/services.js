@@ -5,27 +5,7 @@ var services = angular.module('myApp.services');
 services.factory('us', function($http, $cookies, $q){
 
     return {
-        /*原来的login采用的post方式
-         UserManage: function(username, password) {
-         var deferred = $q.defer();
-         $http.post('/signin', {
-         username: username,
-         password: password
-         }).success(function(data) {
-         // now get some information about the user
-         $cookies.user = angular.toJson(data);
-         console.log('cookies user profile');console.log($cookies.user.profile);
-         deferred.resolve(data);
 
-
-
-         }).error(function(data) {
-         deferred.reject(data.error);
-         });
-         console.log('UserManage');
-         return deferred.promise;
-         },
-         */
         login: function(username, password) {
             var deferred = $q.defer();
             $http.get('/signin',{params: {username:username,password:password
@@ -46,6 +26,9 @@ services.factory('us', function($http, $cookies, $q){
                 .success(function() {
                     delete $cookies.user;
                     delete $cookies.st1;
+
+                    delete $cookies.Hye;
+                    delete $cookies.Hye2;
 
                     delete $cookies.idx1;
                     delete $cookies.idx11;

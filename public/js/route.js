@@ -5,10 +5,11 @@ angular.module('myApp', [
   'myApp.controllers',
   'myApp.services',
   'myApp.filters',
-    'ngAnimate',
     'ngTouch',
     'ui.bootstrap',
-    'chieffancypants.loadingBar'
+    'chieffancypants.loadingBar',
+    'n3-pie-chart',
+    'nvd3ChartDirectives'
 ]).
 
 config(function ($routeProvider, $locationProvider,cfpLoadingBarProvider) {

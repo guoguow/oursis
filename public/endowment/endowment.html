@@ -1,44 +1,35 @@
-
 <ol class="breadcrumb">
     <li><a href="#">home</a></li>
     <li class="active">养老</li>
 </ol>
 
-      养老保险基本信息
-
+                <h1> 养老保险基本信息  </h1>
+<br><br>
 <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="EIndexCtrl" >
 
-    <table  >
+
+    <table>
         <tr >
-            <td><a href="/endowAccount">个人账户</a></td></tr>
-        <tr >
-            <td><a href="/endowPay">{{st1.s1.value1}}缴费历史</a></td>
-         <td>&emsp;&emsp;&emsp; </td>
-         <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
-         <td>{{idx1.pm|nulltozero}}</a></td>
-        </tr>
-        <tr >
-            <td><a href="/endowPaid">{{st1.s1.value1}}发放支付</a></td>
-            <td>&emsp;&emsp;&emsp; </td>
-            <td>总拨付额</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>{{idx1.je|nulltozero}} </a></td><td>&emsp;&emsp; </td>
-        </tr>
-        <tr >
-            <td><a href="/outpay">以往非{{st1.s1.value1}}缴费记录</a></td>
-            <td>&emsp;&emsp;&emsp; </td>
-            <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>{{idx11.pm|nulltozero}}</a></td>
-        </tr>
-        <tr >
-            <td><a href="/outpaid">以往非{{st1.s1.value1}}发放记录</a></td>
-            <td>&emsp;&emsp;&emsp; </td>
-            <td>总缴费额</a></td><td>&emsp;&emsp;&emsp; </td>
-            <td>{{idx11.pm|nulltozero}}</a></td>
-        </tr>
-        <tr >
+            <td><a href="/endowAccount">个人账户</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td><a href="/endowPay">{{st1.s1.value1}}缴费历史</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td ng-show="estatua"><a href="/endowPaid">{{st1.s1.value1}}发放支付</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td><a href="/outpay">以往非{{st1.s1.value1}}缴费记录</a></td><td>&emsp;&emsp;&emsp; </td>
+            <td><a href="/outpaid">以往非{{st1.s1.value1}}发放记录</a></td><td>&emsp;&emsp;&emsp; </td>
             <td><a href="/endowdoc">政策文件解读</a></td>
         </tr>
+
+        <tr >
+
+            <td>目前余额{{eaccye|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+
+            <td>总缴费额{{idx1.pm|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+            <td  ng-show="estatua">总拨付额{{idx1.je|nulltozero}} </td><td>&emsp;&emsp;&emsp; </td>
+            <td>总缴费额{{idx11.pm|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+            <td>总拨付额{{idx11.pm|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+            <td>&emsp;&emsp;&emsp; </td>
+        </tr>
     </table>
+    <ng-include src="'public/endowment/Erecord.html'" ></ng-include>
 
 </div>
 

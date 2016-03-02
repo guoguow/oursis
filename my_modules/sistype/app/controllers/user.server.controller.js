@@ -7,7 +7,7 @@ exports.getsistype=function(req,res,next) {
     console.log('goto get sistype');
 
     var ssn = req.body.ssn;
-    var a="aae140";
+    var a="aae140,aac030";
     var condition={name:"aac001",value:ssn};
     var tablename="ac02";
     User.gete(a,tablename,condition, function (err, user) {
@@ -19,3 +19,4 @@ exports.getsistype=function(req,res,next) {
         return res.json(user);
     })
 };
+

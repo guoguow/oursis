@@ -49,7 +49,12 @@
 
     <ng-include src="'my_modules/pag/public/pagination.html'"></ng-include>
 </div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.min.css">
 
+    <div  ng-controller="BirthPaidCtrl" id="chart1" style="height: 200px;">
+        历年拨付总额信息
+        <svg></svg>
+    </div>
 </div>
 
 

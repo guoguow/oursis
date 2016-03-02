@@ -13020,7 +13020,7 @@ var ngClassEvenDirective = classDirective('Even', 1);
  * prefered in order to benefit from progressive rendering of the browser view.
  *
  * `ngCloak` works in cooperation with a css rule that is embedded within `angular.js` and
- *  `angular.min.js` files. Following is the css rule:
+ *  `angular2.min.js` files. Following is the css rule:
  *
  * <pre>
  * [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

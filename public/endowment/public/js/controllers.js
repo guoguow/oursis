@@ -10,15 +10,45 @@ var app = angular.module('myApp.controllers');
 app.controller('EIndexCtrl', function ($scope, $window,endow) {
     console.log("get index page data of  endowment");
     if($scope.st1.s1.sign==1){
-        console.log("养老参保标识 sign=", $scope.st1.s1.sign);
+        console.log("职工养老参保标识 sign=", $scope.st1.s1.sign);
         $scope.idx1=endow.getindex();
         $scope.idx11=endow.getindex2();
+        $scope.date1=$scope.st1.s1.date;
+        endow.accye($scope.user,$scope,$scope.date1);
+
+        endow.getstatus($scope.user,$scope);
+
+        console.log($scope.estatus);
     }else if ( $scope.st1.s1.sign==11){
-        console.log("养老参保标识 sign=", $scope.st1.s1.sign);
+        console.log("居民养老参保标识 sign=", $scope.st1.s1.sign);
         $scope.idx11=endow.getindex();
         $scope.idx1=endow.getindex2();
+        endow.accye($scope.user,$scope);
+
+        endow.getstatus($scope.user,$scope);
+        console.log("居民养老发放保标识"+$scope.estatus);
+
     }
+
 });
+
+app.controller('yearCtrl', function ($scope, $window,endow) {
+    console.log("get ryear data of  endowment payhistory table");
+    $scope.date1=$scope.st1.s1.date;
+    endow.getyear($scope.user,$scope,$scope.date1);
+
+    console.log("get record page data of  endowment");
+    endow.getrecord($scope.user,$scope,$scope.date1);
+
+    // submit form
+    $scope.submit = function(date11) {
+        console.log("get record page data of past  endowment");
+
+        $scope.date1=date11;
+        endow.getrecord($scope.user,$scope,$scope.date1);
+    };
+});
+
 
 app.controller('EndowPayCtrl', function ($scope, $window,endow,pag) {
 
@@ -78,7 +108,100 @@ app.controller('EndowPayCtrl', function ($scope, $window,endow,pag) {
         }
 
     }
+
+        //绘制分析图的部分额
+        console.log("get  data for  endowment payhistory stack");
+
+    endow.epaystack($scope.user, $scope)
+        .then(function (data) {
+
+            nv.addGraph(function() {
+                var chart = nv.models.multiBarChart()
+                        .transitionDuration(350)
+                        .reduceXTicks(false)   //If 'false', every single x-axis tick label will be rendered.
+                        .rotateLabels(0)      //Angle to rotate x-axis labels.
+                        .showControls(true)   //Allow user to switch between 'Grouped' and 'Stacked' mode.
+                        .groupSpacing(0.1)    //Distance between each group of bars.
+                    ;
+
+                chart.xAxis
+                    .tickFormat(d3.format(',f'))
+                .axisLabel('年度 (年)');
+                chart.yAxis
+                    .tickFormat(d3.format(',.1f'))
+                    .axisLabel('缴费额 (元)');
+
+                d3.select('#chart1 svg')
+                    .datum([
+                        {
+                            key: "个人",
+                            color: "#51A351",
+                            values:$scope.eg
+
+                        },
+                        {
+                            key: "单位",
+                            color: "#BD362F",
+                            values:$scope.ed
+
+                        }
+                    ])
+                    .call(chart);
+
+                nv.utils.windowResize(chart.update);
+
+                return chart;
+            });
+
+
+
+
+
+
+  /*          var chart = nv.models.multiBarChart();
+            if($scope.st1.s1.sign==1){
+            d3.select('#chart1 svg').datum([
+                {
+                    key: "个人",
+                    color: "#51A351",
+                    values:$scope.eg
+
+                },
+                    {
+                        key: "单位",
+                        color: "#BD362F",
+                        values:$scope.ed
+
+                    }
+                ]
+
+            ).transition().duration(500).call(chart);}
+            else{
+                d3.select('#chart1 svg').datum([
+                        {
+                            key: "月缴费额",
+                            color: "#51A351",
+                            values:$scope.eg
+
+                        },
+                        {
+                            key: "月补贴额",
+                            color: "#BD362F",
+                            values:$scope.ed
+
+                        }
+                    ]
+
+
+                ).transition().duration(500).call(chart);
+            }
+*/
+
+        }, function (error) {
+            $scope.error = error;
+        });
 });
+
 app.controller('outpayCtrl', function ($scope, $window,endow,pag) {
 
     console.log('before get endowment detail payhist data');
@@ -141,6 +264,30 @@ app.controller('outpayCtrl', function ($scope, $window,endow,pag) {
 
 app.controller('EndowPaidCtrl', function ($scope, $window,endow,pag) {
 
+
+    //绘制分析图的部分额
+    console.log("get  data for  endowment payhistory stack");
+
+    endow.epaids($scope.user, $scope)
+        .then(function (data) {
+
+
+            var chart = nv.models.multiBarChart();
+            d3.select('#chart1 svg').datum([
+                    {
+                        key: "补贴金额",
+                        color: "#51A351",
+                        values:$scope.eg
+
+                    }
+                ]
+
+            ).transition().duration(500).call(chart);
+
+
+        }, function (error) {
+            $scope.error = error;
+        });
     console.log('before get endowment paid detail data');
     if($scope.st1.s1.sign==1){
 

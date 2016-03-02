@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>横向的时间轴</title>
+    <link rel="stylesheet" href="/public/css/stylee.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<div id="timeline" ng-controller="yearCtrl">
+
+    <ul id="dates">
+        <li  ng-repeat="ey in eyearpaid">
+            <a ng-click="submit(ey.aae041)">
+                {{ey.aae041}}</a>
+        </li>
+
+            <li><a href="/endowment">{{st1.s1.date}}</a></li>
+
+
+            <li  ng-repeat="ey in eyearpay">
+                <a ng-click="submit(ey.aae034)">
+                   {{ey.aae034}}</a>
+            </li>
+    </ul>
+
+    <ul id="issues">
+        <div class="well well-lg" >
+                <h2>{{date1|cutyear}}年 本年度养老个人权益汇总信息</h2>
+              <br><br>
+                <DIV >
+                    <div >
+                        <table>
+                            <tr   ng-show="st1.s1.sign==1">
+                                <td >个人账户情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >截止上年累计储蓄额</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >当年记账总额</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >当年支出</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >当年记账利息</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >至本年末累计储蓄额</td><td>&emsp;&emsp;&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="ea in eaccRecord"    ng-show="st1.s1.sign==1" >
+                                <td >&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.pass|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.nps|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.jiben|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.nrate|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.new|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                            </tr>
+
+                            <tr   ng-show="st1.s1.sign==11">
+                                <td >个人账户情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >当年支出</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >当年利息总额</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >至本年末累计储蓄额</td><td>&emsp;&emsp;&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="ea in eaccRecord"    ng-show="st1.s1.sign==11" >
+                                <td >&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.jiben|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.nrate|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >{{ea.pass|nulltozero}}</td><td>&emsp;&emsp;&emsp; </td>
+
+                            </tr>
+
+
+
+
+
+                            <tr   ng-show="st1.s1.sign==1">
+                                <td >本年度缴费情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >个人月缴费基数</td><td>&emsp; </td>
+                                <td >单位缴费额</td><td>&emsp; </td>
+                                <td >个人缴费额</td><td>&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="er in epayRecord"   ng-show="st1.s1.sign==1">
+                                <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td>{{er.AAE180}}</td><td>&emsp;</td>
+                                <td>{{er.comp}}</td><td>&emsp; </td>
+                                <td>{{er.pers}}</td>
+                            </tr>
+
+                            <tr   ng-show="st1.s1.sign==11">
+                                <td >本年度缴费情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >月缴费</td><td>&emsp; </td>
+                                <td >总缴费</td><td>&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="er in epayRecord"   ng-show="st1.s1.sign==11">
+                                <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td>{{er.bab052}}</td><td>&emsp; </td>
+                                <td>{{er.bab051}}</td>
+                            </tr>
+
+                            <tr ng-show="estatua">
+                                <td >养老金领取情况</td><td>&emsp; </td>
+                                <td >基础养老金</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >个人账户养老金</td><td>&emsp;&emsp;&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="mn in epaidRecord" >
+                                <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td>{{mn.jichu}}</td><td>&emsp;</td>
+                                <td>{{mn.geren}}</td><td>&emsp; </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </DIV>
+        </div>
+
+    </ul>
+
+</div>
+
+</body>
+</html>
+
+

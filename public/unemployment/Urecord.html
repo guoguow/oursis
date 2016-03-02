@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>横向的时间轴</title>
+    <link rel="stylesheet" href="/public/css/stylee.css" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<div id="timeline" ng-controller="UyearCtrl">
+
+    <ul id="dates">
+        <li  ng-repeat="uy in uyearpaid">
+            <a ng-click="submit(uy.AJC090)">
+                {{uy.AJC090|cutyear}}</a>
+        </li>
+
+            <li><a href="/unemployment">{{st1.s2.date}}</a></li>
+
+            <li  ng-repeat="uy in uyearpay">
+                <a ng-click="submit(uy.AAE034)">
+                   {{uy.AAE034|cutyear}}</a>
+            </li>
+    </ul>
+
+    <ul id="issues">
+        <div class="well well-lg" >
+                <h2>{{date2|cutyear}}年 本年度失业个人权益汇总信息</h2>
+              <br><br>
+            <table>
+                <tr>
+                    <td>
+                           <div class="un-5">
+                                <pie-chart data="data" options="options" ></pie-chart>
+                           </div>
+                    </td>
+                    <td>&emsp; &emsp;&emsp;&emsp;&emsp;</td>
+                    <td >
+                           <table >
+
+                            <tr >
+                                <td >本年度缴费情况</td><td>&emsp;&emsp;&emsp; </td>
+                                <td >个人月缴费基数</td><td>&emsp; </td>
+                                <td >单位缴费额</td><td>&emsp; </td>
+                                <td >个人缴费额</td><td>&emsp; </td>
+                            </tr>
+                            <tr >
+                                <td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td>
+                                <td>{{upayRecord.AAE180|nulltozero}}</td><td>&emsp;</td>
+                                <td>{{upayRecord.comp|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{upayRecord.pers|nulltozero}}</td>
+                            </tr>
+                            <tr><td>&emsp; </td></tr>
+
+                            <tr ng-show="upaidRecordCount">
+                                <td ng-repeat="up in upaidRecordCount">
+                                <table>
+                                <tr><td>&emsp;&emsp;&emsp;</td><td>&emsp;&emsp;&emsp; </td><tr>
+                                <tr><td>  <a ng-click="submit2(up.AJC090,up.AAC020)">{{up.AJC090|nulltozero}}</a></td><td>失业一次</td><td>&emsp;&emsp;&emsp; </td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr ng-hide="upaidRecordCount">
+                                 <td>本年未曾失业</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                        <table ng-show="upaidRecord">
+                            <tr><td>&emsp; </td></tr>
+                            <tr  >
+                                <td >上次失业未领取失业保险金额剩余月数</td><td>&emsp; </td>
+                                <td >本次失业保险待遇享受开始年月</td><td>&emsp; </td>
+                                <td >本次应领取失业保险金月数</td><td>&emsp; </td>
+                                <td >本次应领取失业保险金标准 </td><td>&emsp; </td>
+                                <td >本次领取失业保险金剩余月数 </td><td>&emsp; </td>
+                                <td >本次由失业保险基金累计缴纳基本医疗保险金额</td><td>&emsp; </td>
+                            </tr>
+                            <tr ng-repeat="item in upaidRecord"  >
+                                <td>{{item.AJC055|nulltozero}}</td><td>&emsp;</td>
+                                <td>{{item.AAE043|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{item.AJC097|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{item.AJA100|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{item.AJC099|nulltozero}}</td><td>&emsp; </td>
+                                <td>{{item.BJC10P|nulltozero}}</td><td>&emsp; </td>
+
+                            </tr>
+                        </table>
+
+            </table>
+</div>
+    </ul>
+
+</div>
+
+
+</body>
+</html>
+
+
